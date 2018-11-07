@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#26a69a</color>
+    <color name="Rose">#E52A6F</color>
+    <color name="Jewel">#5F0F4E</color>
+    <color name="Amethyst">#675682</color>
+    <color name="BlueTopaz">#67AECA</color>
+    <color name="Silver">#909497</color>
+
+    <color name="primaryColor">#8e24aa</color>
+    <color name="primaryLightColor">#c158dc</color>
+    <color name="primaryDarkColor">#5c007a</color>
+    <color name="primaryTextColor">#ffffff</color>
+
+</resources>

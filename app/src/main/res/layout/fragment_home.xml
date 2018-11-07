@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Rose">
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="207dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl"
+        android:paddingTop="225dp"
+        android:text="Promociones del Mes!!"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbl"
+        android:paddingBottom="50dp" />
+
+</RelativeLayout>

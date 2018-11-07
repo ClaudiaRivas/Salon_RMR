@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/TxtTema"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/ImagenPromociones"
+        android:paddingRight="0dp"
+        android:text="Tema"
+        android:textSize="15dp"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ImagenPromociones"
+        android:layout_width="130dp"
+        android:layout_height="97dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="10dp"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/TxtSubtema"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="53dp"
+        android:textSize="10dp"
+        android:layout_toEndOf="@+id/ImagenPromociones"
+        android:text="Sub Tema" />
+
+</RelativeLayout>
