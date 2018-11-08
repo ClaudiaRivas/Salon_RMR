@@ -21,8 +21,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textGrid"
             android:text="Productos"
-            android:textSize="34sp"
-            android:textColor="@color/Rose"
+            android:textSize="30sp"
             android:layout_centerInParent="true"/>
         
     </RelativeLayout>
@@ -58,21 +57,20 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
-                
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" 
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/hair"/>
-                
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="82dp"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/primaryColor"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/hair" />
+
+                <TextView
+                    android:layout_width="82dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cabello"
                     android:textAlignment="center"
-                    android:text="Cabello"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
                 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -98,19 +96,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="77dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/nail"/>
+                    android:src="@drawable/nail" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="77dp"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/primaryColor"
+                    android:text="Unas"
                     android:textAlignment="center"
-                    android:text="Unas"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -143,13 +140,12 @@
                     android:src="@drawable/jewerly"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/primaryColor"
+                    android:text="Cabello"
                     android:textAlignment="center"
-                    android:text="Cabello"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -175,17 +171,16 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="72dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/makeup2"/>
+                    android:src="@drawable/makeup2" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/primaryColor"
+                    android:textSize="15dp"
                     android:textAlignment="center"
                     android:text="Maquillaje"/>
 

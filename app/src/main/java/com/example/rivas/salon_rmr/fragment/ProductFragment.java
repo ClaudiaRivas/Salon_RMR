@@ -62,6 +62,18 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                //Es el fragmento nuevo que quiero mostrar
+                JoyeriaFragment joyeriaFragment = new JoyeriaFragment();
+                //creo una transaccion de fragmentos
+                FragmentManager transaction = getFragmentManager();
+                //iniciar la transaccion
+                FragmentTransaction fragmentTransaction = transaction.beginTransaction();
+                //reemplazar el fragmento actual con el nuevo
+                fragmentTransaction.replace(R.id.fragmentProducto,joyeriaFragment);
+                fragmentTransaction.addToBackStack(null);
+                //guardar cambios
+                fragmentTransaction.commit();
+
             }
         });
 
@@ -69,12 +81,36 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                //Es el fragmento nuevo que quiero mostrar
+                MaquillajeFragment maquillajeFragment = new MaquillajeFragment();
+                //creo una transaccion de fragmentos
+                FragmentManager transaction = getFragmentManager();
+                //iniciar la transaccion
+                FragmentTransaction fragmentTransaction = transaction.beginTransaction();
+                //reemplazar el fragmento actual con el nuevo
+                fragmentTransaction.replace(R.id.fragmentProducto,maquillajeFragment);
+                fragmentTransaction.addToBackStack(null);
+                //guardar cambios
+                fragmentTransaction.commit();
             }
         });
 
         cardViewunas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                //Es el fragmento nuevo que quiero mostrar
+                UnasFragment unasFragment = new UnasFragment();
+                //creo una transaccion de fragmentos
+                FragmentManager transaction = getFragmentManager();
+                //iniciar la transaccion
+                FragmentTransaction fragmentTransaction = transaction.beginTransaction();
+                //reemplazar el fragmento actual con el nuevo
+                fragmentTransaction.replace(R.id.fragmentProducto,unasFragment);
+                fragmentTransaction.addToBackStack(null);
+                //guardar cambios
+                fragmentTransaction.commit();
 
             }
         });

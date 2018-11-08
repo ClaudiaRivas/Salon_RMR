@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    tools:context=".fragment.JoyeriaFragment">
 
-        <RelativeLayout
-            android:layout_weight="2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textGrid"
-                android:text="Productos de unas "
-                android:textSize="25sp"
-                android:textColor="@color/Rose"
-                android:layout_centerInParent="true"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textGrid"
+            android:text="Productos de joyeria "
+            android:textSize="25sp"
+            android:textColor="@color/Rose"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
     <GridLayout
         android:id="@+id/maingrid"
@@ -57,12 +65,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/pro18" />
+                    android:src="@drawable/pro23" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Esmaltes"
+                    android:text="Juego de joyeria"
                     android:textAlignment="center"
                     android:textColor="@color/primaryColor"
                     android:textSize="15dp"
@@ -102,12 +110,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/pro20" />
+                    android:src="@drawable/pro24" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Polvos   acrilicos"
+                    android:text="Anillos"
                     android:textAlignment="center"
                     android:textColor="@color/primaryColor"
                     android:textSize="15dp"
@@ -149,12 +157,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/pro21" />
+                    android:src="@drawable/pro25" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Liquido  acrilicos"
+                    android:text="Aretes"
                     android:textAlignment="center"
                     android:textColor="@color/primaryColor"
                     android:textSize="15dp"
@@ -194,12 +202,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/pro22" />
+                    android:src="@drawable/pro26" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Apliques decorativos"
+                    android:text="Pulseras"
                     android:textAlignment="center"
                     android:textColor="@color/primaryColor"
                     android:textSize="15dp"
@@ -220,3 +228,5 @@
     </GridLayout>
 
 </LinearLayout>
+
+</FrameLayout>

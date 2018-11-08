@@ -42,10 +42,6 @@ public class Principal extends AppCompatActivity {
         setupViewPage(viewPager);
 
     }
-
-
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -64,14 +60,8 @@ public class Principal extends AppCompatActivity {
                             break;
                     }
                     return true;
-                    //Nose 
                 }
             };
-
-
-
-
-
     private void setupViewPage(ViewPager viewPager){
         adaptador = new AdaptadorFragmento(getSupportFragmentManager());
         adaptador.addFragment(new HomeFragment());
@@ -81,11 +71,6 @@ public class Principal extends AppCompatActivity {
         viewPager.setAdapter(adaptador);
 
     }
-
-
-
-
-
     class AdaptadorFragmento extends FragmentPagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();
