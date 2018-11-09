@@ -1,4 +1,4 @@
-package com.example.rivas.salon_rmr;
+package com.example.rivas.salon_rmr.Activities;
 
 
 import android.support.annotation.NonNull;
@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.rivas.salon_rmr.R;
 import com.example.rivas.salon_rmr.fragment.HomeFragment;
 import com.example.rivas.salon_rmr.fragment.ProductFragment;
 import com.example.rivas.salon_rmr.fragment.ServiceFragment;
@@ -20,7 +21,7 @@ import com.example.rivas.salon_rmr.fragment.ServiceFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Principal extends AppCompatActivity {
+public class PrincipalActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     AdaptadorFragmento adaptador;
@@ -29,9 +30,6 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 

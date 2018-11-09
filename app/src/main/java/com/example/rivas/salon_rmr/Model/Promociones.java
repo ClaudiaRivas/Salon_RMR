@@ -1,4 +1,4 @@
-package com.example.rivas.salon_rmr;
+package com.example.rivas.salon_rmr.Model;
 
 public class Promociones {
     private String Tema;

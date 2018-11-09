@@ -12,11 +12,11 @@ import com.example.rivas.salon_rmr.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-
 public class JoyeriaFragment extends Fragment {
 
 
     public JoyeriaFragment() {
+        // Required empty public constructor
     }
 
 
@@ -30,3 +30,4 @@ public class JoyeriaFragment extends Fragment {
     }
 
 }
+

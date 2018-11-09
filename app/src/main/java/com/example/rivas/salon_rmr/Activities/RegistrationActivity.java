@@ -1,15 +1,16 @@
-package com.example.rivas.salon_rmr;
+package com.example.rivas.salon_rmr.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
-public class Registrar1 extends AppCompatActivity {
+import com.example.rivas.salon_rmr.R;
+
+public class RegistrationActivity extends AppCompatActivity {
 
     private Button btnGuardar ;
 
@@ -23,7 +24,7 @@ public class Registrar1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrar1);
+        setContentView(R.layout.activity_registration);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -34,7 +35,7 @@ public class Registrar1 extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent btnGuardar = new Intent(Registrar1.this, Principal.class);
+                Intent btnGuardar = new Intent(RegistrationActivity.this, PrincipalActivity.class);
                 startActivity(btnGuardar);
             }
         });

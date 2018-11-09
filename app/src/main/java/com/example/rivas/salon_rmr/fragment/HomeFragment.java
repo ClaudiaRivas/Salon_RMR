@@ -17,8 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.example.rivas.salon_rmr.Principal;
-import com.example.rivas.salon_rmr.Promociones;
+import com.example.rivas.salon_rmr.Model.Promociones;
+import com.example.rivas.salon_rmr.Activities.PrincipalActivity;
 import com.example.rivas.salon_rmr.R;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     private int posicion;
     private static final int DURACION = 9000;
     private Timer timer = null;
-    private List<Principal> myPrincipal = new ArrayList<Principal>();
+    private List<PrincipalActivity> myPrincipal = new ArrayList<PrincipalActivity>();
     private TextView TxtTema;
     private TextView TxtSubTema;
     private ImageView ImagenPromociones;

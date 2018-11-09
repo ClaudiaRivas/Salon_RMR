@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Iniciar_Sesion1">
+    android:orientation="vertical"
+    tools:context=".Activities.MainActivity">
 
     <ImageView
         android:id="@+id/formBack"
@@ -13,10 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondo"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        android:src="@drawable/fondo"/>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -69,13 +67,43 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:paddingStart="10dp"
                 android:fontFamily="cursive"
                 android:gravity="center"
+                android:paddingStart="10dp"
                 android:text="Beauty RMR Salón"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/userNombre"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="5dp"
+                android:hint="Nombre"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textSize="17dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/userApellido"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="5dp"
+                android:hint="Apellido"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textSize="17dp" />
 
             <AutoCompleteTextView
                 android:id="@+id/userEmail"
@@ -87,13 +115,13 @@
                 android:background="@drawable/rounded_white"
                 android:drawableLeft="@drawable/email"
                 android:drawablePadding="5dp"
-                android:hint="Correo eléctronico"
+                android:hint="Correo"
                 android:paddingEnd="10dp"
                 android:paddingStart="10dp"
                 android:textSize="17dp" />
 
             <AutoCompleteTextView
-                android:id="@+id/userPassword"
+                android:id="@+id/userContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
@@ -108,21 +136,35 @@
                 android:paddingStart="10dp"
                 android:textSize="17dp" />
 
+            <AutoCompleteTextView
+                android:id="@+id/userTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/phone"
+                android:drawablePadding="5dp"
+                android:hint="Teléfono"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textSize="17dp" />
+
             <Button
-                android:id="@+id/btnIngresar"
-                android:layout_width="146dp"
+                android:id="@+id/btnGuardar"
+                android:layout_width="128dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/button_fondo"
                 android:textColor="@drawable/button_texto"
-                android:text=" Iniciar Sesión "
+                android:text=" Registrarse "
                 android:textStyle="bold" />
 
         </LinearLayout>
 
     </ScrollView>
-
 
 </android.support.constraint.ConstraintLayout>

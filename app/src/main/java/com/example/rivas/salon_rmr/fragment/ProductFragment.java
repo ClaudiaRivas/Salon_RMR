@@ -53,8 +53,6 @@ public class ProductFragment extends Fragment {
                 //guardar cambios
                 fragmentTransaction.commit();
 
-
-
             }
         });
 

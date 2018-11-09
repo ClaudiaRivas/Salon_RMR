@@ -5,23 +5,20 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="RMR"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Principal" />
-        <activity android:name=".Registrar1" />
-        <activity android:name="com.example.rivas.belleza.Iniciar_Sesion" />
-        <activity android:name=".Producto" />
-        <activity android:name=".Iniciar_Sesion1" />
-        <activity android:name=".Reserva"></activity>
+        <activity android:name=".Activities.PrincipalActivity" />
+        <activity android:name=".Activities.RegistrationActivity" />
+        <activity android:name=".Activities.LoginActivity" />
     </application>
 
 </manifest>

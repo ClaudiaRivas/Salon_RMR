@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="servicios">
-        <item>Maquillaje</item>
-        <item>Uñas</item>
-        <item>Cabello</item>
-        <item>Cortes</item>
-    </string-array>
-</resources>

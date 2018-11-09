@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/background">
     
     <RelativeLayout
         android:layout_weight="2"
@@ -21,7 +22,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/textGrid"
             android:text="Productos"
-            android:textSize="30sp"
+            android:textSize="25sp"
+            android:textColor="@color/primaryTextColor"
             android:layout_centerInParent="true"/>
         
     </RelativeLayout>
@@ -68,6 +70,7 @@
                     android:layout_width="82dp"
                     android:layout_height="wrap_content"
                     android:text="Cabello"
+                    android:textColor="@color/primaryColor"
                     android:textAlignment="center"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -104,9 +107,10 @@
                 <TextView
                     android:layout_width="77dp"
                     android:layout_height="wrap_content"
-                    android:text="Unas"
+                    android:text="Uñas"
                     android:textAlignment="center"
                     android:textSize="15dp"
+                    android:textColor="@color/primaryColor"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -142,8 +146,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cabello"
+                    android:text="Joyeria"
                     android:textAlignment="center"
+                    android:textColor="@color/primaryColor"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
@@ -181,6 +186,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="15dp"
+                    android:textColor="@color/primaryColor"
                     android:textAlignment="center"
                     android:text="Maquillaje"/>
 

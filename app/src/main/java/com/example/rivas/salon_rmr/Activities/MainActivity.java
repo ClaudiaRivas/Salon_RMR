@@ -1,4 +1,4 @@
-package com.example.rivas.salon_rmr;
+package com.example.rivas.salon_rmr.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.rivas.salon_rmr.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnIngresarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent btnIngresarSesion = new Intent( MainActivity.this, Registrar1.class);
+                Intent btnIngresarSesion = new Intent( MainActivity.this, RegistrationActivity.class);
                 startActivity(btnIngresarSesion);
             }
         });
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent btnIniciar = new Intent( MainActivity.this, Iniciar_Sesion1.class);
+                Intent btnIniciar = new Intent( MainActivity.this, LoginActivity.class);
                 startActivity(btnIniciar);
             }
         });
