@@ -19,6 +19,7 @@
         <activity android:name=".Activities.PrincipalActivity" />
         <activity android:name=".Activities.RegistrationActivity" />
         <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.ReservationActivity"></activity>
     </application>
 
 </manifest>

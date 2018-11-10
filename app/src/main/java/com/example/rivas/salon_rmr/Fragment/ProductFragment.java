@@ -1,4 +1,4 @@
-package com.example.rivas.salon_rmr.fragment;
+package com.example.rivas.salon_rmr.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
-import android.widget.Toast;
 
 import com.example.rivas.salon_rmr.R;
 

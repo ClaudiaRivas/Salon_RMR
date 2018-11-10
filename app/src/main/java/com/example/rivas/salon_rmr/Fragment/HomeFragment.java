@@ -1,4 +1,4 @@
-package com.example.rivas.salon_rmr.fragment;
+package com.example.rivas.salon_rmr.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
