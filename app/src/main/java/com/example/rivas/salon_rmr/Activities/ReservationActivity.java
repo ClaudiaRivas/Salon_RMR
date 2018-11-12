@@ -1,5 +1,6 @@
 package com.example.rivas.salon_rmr.Activities;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -29,5 +30,8 @@ public class ReservationActivity extends AppCompatActivity {
         txtPrecio.setText("Precio: $".concat(values.getString("precio")));
         txtDescripcion.setText(values.getString("descripcion"));
         imgServicio.setImageResource(values.getInt("imagen"));
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
 }
