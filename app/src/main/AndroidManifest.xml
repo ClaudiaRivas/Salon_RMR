@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rivas.salon_rmr">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="RMR"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -18,9 +19,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.PrincipalActivity" />
-        <activity android:name=".Activities.RegistrationActivity" />
-        <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.ReservationActivity"></activity>
+        <activity
+            android:name=".Activities.RegistrationActivity"
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".Activities.ReservationActivity" />
     </application>
 
 </manifest>

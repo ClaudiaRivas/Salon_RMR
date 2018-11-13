@@ -55,7 +55,7 @@ public class ServiceFragment extends Fragment {
         return view;
     }
     private void getServices(){
-        progress = ProgressDialog.show(getContext(), "Cargando...", "Espere por favor");
+        progress = ProgressDialog.show(getActivity(), "Cargando...", "Espere por favor");
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder().baseUrl(AppConstants.SERVICES_JSON).
                 addConverterFactory(GsonConverterFactory.create(gson)).build();
