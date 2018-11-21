@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragmentProducto"
-    android:background="#f0f0f0"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:background="#f0f0f0">
+
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="10"
@@ -32,106 +29,109 @@
             android:layout_centerInParent="true"/>
         
     </RelativeLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <!-- Columna 1 -->
+            <android.support.v7.widget.CardView
+                android:layout_marginRight="40dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/cardviewcabello"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/hair" />
+
+                    <TextView
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:text="Cabello"
+                        android:textColor="@color/primaryColor"
+                        android:textAlignment="center"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Columna 2 -->
+            <android.support.v7.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardviewunas"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_unas" />
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="wrap_content"
+                        android:text="Uñas"
+                        android:textAlignment="center"
+                        android:textSize="15dp"
+                        android:textColor="@color/primaryColor"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
     
-    <GridLayout
-        android:id="@+id/maingrid"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false"
-        android:layout_weight="8"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:padding="14dp">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
 
-        <!-- Fila 1 -->
-        <!-- Columna 1 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:id="@+id/cardviewcabello"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-            
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="82dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/hair" />
-
-                <TextView
-                    android:layout_width="82dp"
-                    android:layout_height="wrap_content"
-                    android:text="Cabello"
-                    android:textColor="@color/primaryColor"
-                    android:textAlignment="center"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-                
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- Columna 2 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/cardviewunas"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/nail" />
-
-                <TextView
-                    android:layout_width="77dp"
-                    android:layout_height="wrap_content"
-                    android:text="Uñas"
-                    android:textAlignment="center"
-                    android:textSize="15dp"
-                    android:textColor="@color/primaryColor"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
 
         <!-- Fila 2 -->
         <!-- Columna 1 -->
         <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:id="@+id/cardviewjoyeria"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp">
 
@@ -162,14 +162,12 @@
 
         <!-- Columna 2 -->
         <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:id="@+id/cardviewmaquillaje"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp">
 
@@ -190,171 +188,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
+                    android:textSize="14sp"
                     android:textColor="@color/primaryColor"
                     android:textAlignment="center"
                     android:text="Maquillaje"/>
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
-        <!-- Fila 3 -->
-        <!-- Columna 1 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:id="@+id/cardviewOtro1"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="82dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/hair" />
-
-                <TextView
-                    android:layout_width="82dp"
-                    android:layout_height="wrap_content"
-                    android:text="Cabello"
-                    android:textColor="@color/primaryColor"
-                    android:textAlignment="center"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- Columna 2 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/cardviewunas1"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="77dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/nail" />
-
-                <TextView
-                    android:layout_width="77dp"
-                    android:layout_height="wrap_content"
-                    android:text="Uñas"
-                    android:textAlignment="center"
-                    android:textSize="15dp"
-                    android:textColor="@color/primaryColor"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- Fila 4 -->
-        <!-- Columna 1 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:id="@+id/cardviewjoyeria1"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/jewerly"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Joyeria"
-                    android:textAlignment="center"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- Columna 2 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:id="@+id/cardviewmaquillaje1"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="72dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/makeup2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:textColor="@color/primaryColor"
-                    android:textAlignment="center"
-                    android:text="Maquillaje"/>
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    </GridLayout>
-
+        </LinearLayout>
     </LinearLayout>
 
-    </ScrollView>
-</FrameLayout>
+</RelativeLayout>

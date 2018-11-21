@@ -1,48 +1,43 @@
 package com.example.rivas.salon_rmr.Fragment;
 
-import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.util.SortedList;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.rivas.salon_rmr.Activities.ServiceAdapters;
-import com.example.rivas.salon_rmr.Model.Promociones;
 import com.example.rivas.salon_rmr.Model.Servicio;
 import com.example.rivas.salon_rmr.R;
-import com.example.rivas.salon_rmr.Apputilities.AppConstants;
-import com.example.rivas.salon_rmr.retrofitinterfaces.ServicesInterface;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
 public class ServiceFragment extends Fragment {
 
-    private ServiceAdapters adapter;
-    public RecyclerView recyclerView;
-    private ProgressDialog progress;
-    List<Servicio> tmpServicios;
-    public ServiceFragment() {
-    }
+
+    //firebase
+    CollectionReference dbServicio;
+    //adaptador
+    AdaptadorServicio adaptadorServicio;
+    //lista
+    private List<Servicio> listaServicio = new ArrayList<Servicio>();
 
     @Nullable
     @Override
@@ -50,40 +45,103 @@ public class ServiceFragment extends Fragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_service, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.servicesRecyclerView);
-        getServices();
-        return view;
-    }
-    private void getServices(){
-        progress = ProgressDialog.show(getActivity(), "Cargando...", "Espere por favor");
-        Gson gson = new GsonBuilder().setLenient().create();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(AppConstants.SERVICES_JSON).
-                addConverterFactory(GsonConverterFactory.create(gson)).build();
-        ServicesInterface servicesInterface = retrofit.create(ServicesInterface.class);
-        Call<List<Servicio>> call = servicesInterface.getServices();
-        call.enqueue(new Callback<List<Servicio>>(){
+        //instancia al listview
+        ListView list = (ListView) view.findViewById(R.id.listaServicios);
+        //hacer instancia a la bd en firebase
+        dbServicio = FirebaseFirestore.getInstance().collection("servicios");
+        //crear adaptador
+        adaptadorServicio = new AdaptadorServicio(getContext(),listaServicio);
+        //establecer el adaptador a la listview
+        list.setAdapter(adaptadorServicio);
+        /**
+         * Registra cambios en la bd mediante el evento Document Changed
+         */
+        dbServicio.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
-                Log.d("response", response.body().toString()); //response.body() Obtiene la respuesta del JSON en linea
-                tmpServicios = response.body();
-                updateAdapter(tmpServicios);
-                progress.dismiss();
-            }
-
-            @Override
-            public void onFailure(Call<List<Servicio>> call, Throwable t) {
-                Log.d("error", t.getMessage());
-                progress.dismiss();
+            public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
             }
         });
+        return view;
     }
 
-    private void updateAdapter(List<Servicio> servicios){
-        adapter = new ServiceAdapters(servicios, getActivity());
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+    private void actualizarDatos(List<DocumentChange> cambios) {
+        //para cada documento cambiado
+        for (DocumentChange document_changed : cambios) {
+            //obtengo el documento
+            DocumentSnapshot document = document_changed.getDocument();
+            //obtengo la posicion del producto basado en el Id
+            int posicion = posicionServicio(document.getId());
+            //si el documento fue eliminado
+            if (document_changed.getType() == DocumentChange.Type.REMOVED) {
+                //se elimina de la lista tambien
+                listaServicio.remove(posicion);
+            } else {
+                //obtengo un objeto servicio del documento
+                Servicio servicio = getServicio(document);
+                //si la posicion es mayor a cero es por que existe en la lista y se actualiza
+                if (posicion >= 0) {
+                    listaServicio.set(posicion, servicio);
+                } else {
+                    //si no , es por que es un elemento nuevo
+                    listaServicio.add(servicio);
+                }
+            }
+            Log.d("LISTA FIREBASE", "Actualizada " + document.getId() + " " + document.getData().values());
+        }
+        //notifico al adaptador de los cambios
+        adaptadorServicio.notifyDataSetChanged();
+        Toast.makeText(getContext(), "Datos actualizados", Toast.LENGTH_SHORT).show();
+    }
 
+    private Servicio getServicio(DocumentSnapshot document) {
+        Servicio servicio = new Servicio();
+        //establecer parametros
+        servicio.setId(document.getId());
+        servicio.setNombre(document.getString("nombre"));
+        servicio.setDescripcion(document.getString("descripcion"));
+        servicio.setPrecio(document.getString("precio"));
+        return servicio;
+    }
+
+    private int posicionServicio(String id) {
+        for (Servicio servicio : listaServicio) {
+            if (servicio.getId().equals(id)) {
+                return listaServicio.indexOf(servicio);
+            }
+        }
+        return -1;
+    }
+
+
+    // Hacemos el metodo AdaptadorServicio
+    class AdaptadorServicio extends ArrayAdapter<Servicio> {
+
+        public AdaptadorServicio(@NonNull Context context, @NonNull List<Servicio> objects) {
+            super(context, 0, objects);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View itemView = convertView;
+            if (itemView == null)
+                itemView = getLayoutInflater().inflate(R.layout.item_service, parent, false);
+
+            //CurrentPromociones es la posicion en la que vamos a estar
+            Servicio servicio = listaServicio.get(position);
+            ImageView imageView = (ImageView) itemView.findViewById(R.id.serviceImage);
+            imageView.setImageResource(R.drawable.portada);
+
+            TextView txtNombreServicio = (TextView) itemView.findViewById(R.id.txtNombreServicio);
+            txtNombreServicio.setText(servicio.getNombre());
+
+            TextView txtDescripcionServicio = (TextView) itemView.findViewById(R.id.txtDescripcionServicio);
+            txtDescripcionServicio.setText(servicio.getDescripcion());
+
+            TextView txtPrecioServicio = (TextView) itemView.findViewById(R.id.txtPrecioServicio);
+            txtPrecioServicio.setText(servicio.getPrecio());
+            return itemView;
+        }
     }
 }

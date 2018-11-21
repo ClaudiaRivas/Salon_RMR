@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_home_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\rivas" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_unas" />
+                            <entry key="sourceFile" value="C:\Users\rivas\Downloads\unas.svg" />
                           </map>
                         </option>
                       </PersistentState>

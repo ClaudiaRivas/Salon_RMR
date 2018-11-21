@@ -76,33 +76,23 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/impEmail">
-
             <EditText
-                android:id="@+id/userEmail"
+                android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:ems="10"
-                android:background="@drawable/rounded_white"
-                android:drawableLeft="@drawable/email"
-                android:drawablePadding="5dp"
-                android:hint="Correo eléctronico"
-                android:inputType="textEmailAddress"
                 android:layout_marginBottom="10dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="5dp"
+                android:hint="Usuario"
                 android:paddingEnd="10dp"
                 android:paddingStart="10dp"
-                android:textSize="17dp"/>
-            </android.support.design.widget.TextInputLayout>
+                android:textSize="17dp" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/impPassword">
+
+
             <EditText
                 android:id="@+id/userPassword"
                 android:layout_width="match_parent"
@@ -117,10 +107,9 @@
                 android:inputType="textPassword"
                 android:paddingEnd="10dp"
                 android:paddingStart="10dp"
-                android:textSize="17dp"
-                android:ems="10" />
+                android:textSize="17dp" />
 
-            </android.support.design.widget.TextInputLayout>
+
 
             <Button
                 android:id="@+id/btnIngresar"
