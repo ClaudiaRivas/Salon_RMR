@@ -189,7 +189,7 @@ public class HomeFragment extends Fragment {
             //CurrentPromociones es la posicion en la que vamos a estar
             Promocion promocion = listaPromociones.get(position);
             ImageView imageView = (ImageView) itemView.findViewById(R.id.ImagenPromociones);
-            imageView.setImageResource(R.drawable.portada);
+            imageView.setImageResource(R.drawable.service2);
 
             TextView TemaTxt = (TextView) itemView.findViewById(R.id.TxtTema);
             TemaTxt.setText(promocion.getNombre());

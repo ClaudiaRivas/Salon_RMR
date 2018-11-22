@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
  <item
      android:id="@+id/borrar"
-     android:icon="@drawable/hair"
+     android:icon="@drawable/ic_nail_polish"
      android:title="Borrar"
      app:showAsAction="always"/>
 
     <item
         android:id="@+id/cerrarsesion"
-        android:icon="@drawable/hair"
+        android:icon="@drawable/ic_nail_polish"
         android:title="Cerrar Sesion"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/continuar"
-        android:icon="@drawable/hair"
+        android:icon="@drawable/ic_nail_polish"
         android:title="Continuar"
         app:showAsAction="always"/>
 </menu>

@@ -131,7 +131,7 @@ public class ServiceFragment extends Fragment {
             //CurrentPromociones es la posicion en la que vamos a estar
             Servicio servicio = listaServicio.get(position);
             ImageView imageView = (ImageView) itemView.findViewById(R.id.serviceImage);
-            imageView.setImageResource(R.drawable.portada);
+            imageView.setImageResource(R.drawable.service1);
 
             TextView txtNombreServicio = (TextView) itemView.findViewById(R.id.txtNombreServicio);
             txtNombreServicio.setText(servicio.getNombre());
