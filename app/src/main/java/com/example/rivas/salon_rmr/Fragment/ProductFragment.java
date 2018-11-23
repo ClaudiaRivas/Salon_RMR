@@ -16,7 +16,6 @@ import com.example.rivas.salon_rmr.R;
 
 public class ProductFragment extends Fragment {
 
-    GridLayout maingrid;
 
     CardView cardViewcabello, cardViewjoyeria , cardViewunas , cardViewmaquillaje;
 
@@ -26,7 +25,6 @@ public class ProductFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product,container,false);
 
-        maingrid = (GridLayout)view.findViewById(R.id.maingrid);
 
         //setToggleEvent(maingrid);
 

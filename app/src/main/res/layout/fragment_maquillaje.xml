@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textGrid"
-                android:text="Maquillajes"
+                android:text="Productos de Maquillajes"
                 android:textSize="25sp"
                 android:textColor="@color/primaryTextColor"
                 android:layout_centerInParent="true"/>

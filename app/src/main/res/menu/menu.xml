@@ -13,7 +13,7 @@
         android:title="Cerrar Sesion"
 
         app:showAsAction="always"/>
-//solo es para ver 
+//solo es para ver
     <item
         android:id="@+id/continuar"
         android:icon="@drawable/ic_nail_polish"
