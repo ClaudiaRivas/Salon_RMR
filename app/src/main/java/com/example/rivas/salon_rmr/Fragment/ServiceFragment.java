@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rivas.salon_rmr.Apputilities.AdaptadorServicios;
 import com.example.rivas.salon_rmr.Model.Servicio;
 import com.example.rivas.salon_rmr.R;
 import com.google.firebase.firestore.CollectionReference;
@@ -35,9 +39,9 @@ public class ServiceFragment extends Fragment {
     //firebase
     CollectionReference dbServicio;
     //adaptador
-    AdaptadorServicio adaptadorServicio;
+    AdaptadorServicios adaptadorServicio;
     //lista
-    private List<Servicio> listaServicio = new ArrayList<Servicio>();
+    private ArrayList<Servicio> listaServicio = new ArrayList<Servicio>();
 
     @Nullable
     @Override
@@ -46,11 +50,19 @@ public class ServiceFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_service, container, false);
 
         //instancia al listview
-        ListView list = (ListView) view.findViewById(R.id.listaServicios);
+        RecyclerView list = (RecyclerView) view.findViewById(R.id.listaServicios);
+        list.setHasFixedSize(true);
+
+        //creando el administrador del recyclerview
+
+        // use a linear layout manager
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        list.setLayoutManager(mLayoutManager);
+
         //hacer instancia a la bd en firebase
         dbServicio = FirebaseFirestore.getInstance().collection("servicios");
         //crear adaptador
-        adaptadorServicio = new AdaptadorServicio(getContext(),listaServicio);
+        adaptadorServicio = new AdaptadorServicios(listaServicio,getContext());
         //establecer el adaptador a la listview
         list.setAdapter(adaptadorServicio);
         /**
@@ -87,7 +99,7 @@ public class ServiceFragment extends Fragment {
                     listaServicio.add(servicio);
                 }
             }
-            Log.d("LISTA FIREBASE", "Actualizada " + document.getId() + " " + document.getData().values());
+            Log.d("LISTA FIREBASE SERVICIO", "Actualizada " + document.getId() + " " + document.getData().values());
         }
         //notifico al adaptador de los cambios
         adaptadorServicio.notifyDataSetChanged();
@@ -114,34 +126,4 @@ public class ServiceFragment extends Fragment {
     }
 
 
-    // Hacemos el metodo AdaptadorServicio
-    class AdaptadorServicio extends ArrayAdapter<Servicio> {
-
-        public AdaptadorServicio(@NonNull Context context, @NonNull List<Servicio> objects) {
-            super(context, 0, objects);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            View itemView = convertView;
-            if (itemView == null)
-                itemView = getLayoutInflater().inflate(R.layout.item_service, parent, false);
-
-            //CurrentPromociones es la posicion en la que vamos a estar
-            Servicio servicio = listaServicio.get(position);
-            ImageView imageView = (ImageView) itemView.findViewById(R.id.serviceImage);
-            imageView.setImageResource(R.drawable.service1);
-
-            TextView txtNombreServicio = (TextView) itemView.findViewById(R.id.txtNombreServicio);
-            txtNombreServicio.setText(servicio.getNombre());
-
-            TextView txtDescripcionServicio = (TextView) itemView.findViewById(R.id.txtDescripcionServicio);
-            txtDescripcionServicio.setText(servicio.getDescripcion());
-
-            TextView txtPrecioServicio = (TextView) itemView.findViewById(R.id.txtPrecioServicio);
-            txtPrecioServicio.setText(servicio.getPrecio());
-            return itemView;
-        }
-    }
 }
