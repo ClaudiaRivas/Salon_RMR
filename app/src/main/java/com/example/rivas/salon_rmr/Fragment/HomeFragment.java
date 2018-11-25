@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import com.example.rivas.salon_rmr.Activities.MainActivity;
 import com.example.rivas.salon_rmr.Model.Promocion;
 import com.example.rivas.salon_rmr.R;
 import com.google.firebase.firestore.CollectionReference;
@@ -28,6 +29,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.smarteist.autoimageslider.SliderLayout;
+import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,8 @@ public class HomeFragment extends Fragment {
 
 
     View view;
+
+    SliderLayout sliderLayout;
 
     private ImageSwitcher imageSwitcher;
     private int[] galeria = {R.drawable.p, R.drawable.p1, R.drawable.p2, R.drawable.p4};
@@ -74,10 +79,46 @@ public class HomeFragment extends Fragment {
                 actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
             }
         });
-        animaciones();
+        //animaciones();
+
+        sliderLayout =  view.findViewById(R.id.imageSwitcher);
+
+        setSliderViews();
 
         return view;
     }
+
+
+    private void setSliderViews() {
+
+        for (int i = 0; i <= 3; i++) {
+
+            SliderView sliderView = new SliderView(getContext());
+
+            switch (i) {
+                case 0:
+                    sliderView.setImageDrawable(R.drawable.p);
+                    break;
+                case 1:
+                    sliderView.setImageDrawable(R.drawable.p1);
+                    break;
+                case 2:
+                    sliderView.setImageDrawable(R.drawable.p2);
+                    break;
+                case 3:
+                    sliderView.setImageDrawable(R.drawable.p4);
+                    break;
+            }
+
+            sliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
+            //sliderView.setDescription("setDescription " + (i + 1));
+            final int finalI = i;
+
+            //at last add this view in your layout :
+            sliderLayout.addSliderView(sliderView);
+        }
+    }
+
 
     private void animaciones(){
         imageSwitcher = (ImageSwitcher) view.findViewById(R.id.imageSwitcher);
@@ -147,28 +188,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(galeria[posicion]);
-                        posicion++;
-                        if (posicion == galeria.length)
-                            posicion = 0;
-                    }
-                });
-            }
-        }, 0, DURACION);
-
     }
 
 
     @Override
     public void onPause() {
         super.onPause();
-        timer.cancel();
 
     }
 

@@ -62,7 +62,7 @@
                         android:layout_width="82dp"
                         android:layout_height="85dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_nail_polish" />
+                        android:src="@drawable/ic_cabello" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -98,7 +98,7 @@
                         android:layout_width="82dp"
                         android:layout_height="85dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/nail" />
+                        android:src="@drawable/ic_nail_polish" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -146,7 +146,7 @@
                     android:layout_width="82dp"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_nail_polish"/>
+                    android:src="@drawable/ic_joyeria"/>
 
                 <TextView
                     android:layout_width="82dp"
@@ -182,7 +182,7 @@
                     android:layout_width="82dp"
                     android:layout_height="85dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/makeup2" />
+                    android:src="@drawable/ic_maquillaje" />
 
                 <TextView
                     android:layout_width="82dp"
