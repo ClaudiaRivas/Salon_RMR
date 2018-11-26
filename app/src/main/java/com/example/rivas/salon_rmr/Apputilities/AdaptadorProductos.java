@@ -9,17 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.rivas.salon_rmr.Model.Producto;
+import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
 
 import java.util.ArrayList;
 
 public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.ViewHolder> {
 
-    private ArrayList<Producto> list = new ArrayList<>();
+    private ArrayList<Item> list = new ArrayList<>();
     private Context context;
 
-    public AdaptadorProductos(ArrayList<Producto> list, Context context) {
+    public AdaptadorProductos(ArrayList<Item> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -34,12 +34,12 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Producto p = list.get(position);
+        Item p = list.get(position);
 
+        //TODO implementar imagenes
         if(p.getId().equals("8")){
             holder.imgProducto.setImageResource(R.drawable.joyeria2);
         }
-
         holder.txtNombreProducto.setText(p.getNombre());
         holder.txtPrecioProducto.setText(p.getPrecio());
     }

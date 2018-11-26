@@ -1,25 +1,22 @@
 package com.example.rivas.salon_rmr.Model;
 
-public class Servicio {
-    private String id;
+public class Item {
+
+    public String id;
     public String nombre;
     public String descripcion;
     public String precio;
 
-    public Servicio(){
+    public Item(){
 
     }
 
-    public Servicio(String id, String nombre, String descripcion, String precio) {
+    public Item(String id, String nombre, String descripcion, String precio) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
     }
-
-    public String getId() { return id; }
-
-    public void setId(String id) { this.id = id; }
 
     public String getNombre() {
         return nombre;
@@ -41,4 +38,7 @@ public class Servicio {
         this.descripcion = descripcion;
     }
 
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 }

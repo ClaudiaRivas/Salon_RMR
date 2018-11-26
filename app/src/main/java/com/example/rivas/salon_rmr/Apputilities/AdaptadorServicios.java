@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.example.rivas.salon_rmr.Model.Servicio;
+import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
 
 import java.util.ArrayList;
@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class AdaptadorServicios extends RecyclerView.Adapter<AdaptadorServicios.ViewHolder> {
 
 
-    private ArrayList<Servicio> list = new ArrayList<>();
+    private ArrayList<Item> list = new ArrayList<>();
     private Context context;
 
-    public AdaptadorServicios(ArrayList<Servicio> list, Context context) {
+    public AdaptadorServicios(ArrayList<Item> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -37,7 +37,7 @@ public class AdaptadorServicios extends RecyclerView.Adapter<AdaptadorServicios.
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorServicios.ViewHolder viewHolder, int i) {
-        Servicio s = list.get(i);
+        Item s = list.get(i);
 
         //TODO Agregar imagen
 
