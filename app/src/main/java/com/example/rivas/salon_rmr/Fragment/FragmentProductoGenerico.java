@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
@@ -27,9 +28,8 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
 
     private RecyclerView recycler;
     private RecyclerView.LayoutManager administrador;
-    private AdaptadorProductos adaptadorProductos;
+
     private GridDecoracion decoracion;
-    private ArrayList<Item> listaProductos=new ArrayList<>();
     private CollectionReference dbReferencia;
 
     private String referencia;
@@ -72,10 +72,10 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
 
         administrador = new GridLayoutManager(getContext(), 2);
         recycler.setLayoutManager(administrador);
-        adaptadorProductos = new AdaptadorProductos(listaProductos,getContext());
+        adaptadorItems = new AdaptadorProductos(listaItems,getContext());
 
         recycler.addItemDecoration(decoracion);
-        recycler.setAdapter(adaptadorProductos);
+        recycler.setAdapter(adaptadorItems);
 
         //si tiene referencia de la BD
         if(referencia!=null){

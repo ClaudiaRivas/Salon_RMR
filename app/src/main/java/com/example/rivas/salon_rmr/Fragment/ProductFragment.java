@@ -34,7 +34,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de cabello",null);
+                cargarFragmento("Productos de cabello","producto_cabello");
             }
         });
 
@@ -42,7 +42,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de joyeria",null);
+                cargarFragmento("Productos de joyeria","producto_joyeria");
             }
         });
 
@@ -50,7 +50,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de maquillaje",null);
+                cargarFragmento("Productos de maquillaje","producto_maquillaje");
             }
         });
 
@@ -58,7 +58,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de uñas",null);
+                cargarFragmento("Productos de uñas","producto_uñas");
             }
         });
         return view;
