@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
+import com.example.rivas.salon_rmr.Fragment.ContactFragment;
 import com.example.rivas.salon_rmr.R;
 import com.example.rivas.salon_rmr.Fragment.HomeFragment;
 import com.example.rivas.salon_rmr.Fragment.ProductFragment;
@@ -64,6 +65,9 @@ public class PrincipalActivity extends AppCompatActivity {
                         case R.id.nav_service:
                             viewPager.setCurrentItem(2);
                             break;
+                        case R.id.nav_contact:
+                            viewPager.setCurrentItem(3);
+                            break;
                     }
                     return true;
                 }
@@ -73,6 +77,7 @@ public class PrincipalActivity extends AppCompatActivity {
         adaptador.addFragment(new HomeFragment());
         adaptador.addFragment(new ProductFragment());
         adaptador.addFragment(new ServiceFragment());
+        adaptador.addFragment(new ContactFragment());
 
         viewPager.setAdapter(adaptador);
 

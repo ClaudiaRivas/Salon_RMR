@@ -10,6 +10,8 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.example.rivas.salon_rmr.R;
 
@@ -77,6 +79,10 @@ public class ProductFragment extends Fragment {
         //iniciar la transaccion
         FragmentTransaction fragmentTransaction = transaction.beginTransaction();
         //reemplazar el fragmento actual con el nuevo
+
+
+
+
         fragmentTransaction.replace(R.id.fragmentProduct, fragmentProductoGenerico);
         fragmentTransaction.addToBackStack(null);
         //guardar cambios
