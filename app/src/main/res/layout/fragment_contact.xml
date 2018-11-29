@@ -6,6 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ContactFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -13,38 +16,83 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <android.support.v7.widget.CardView
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="El salon RMR es considerado uno de los"
-            android:textSize="18sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="mejores salones de belleza de la ciudad de"
-            android:textSize="18sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sonsonate, cuenta con el equipamiento"
-            android:textSize="18sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="necesario para hacer de tus visitas una de las"
-            android:textSize="18sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="experiencias mejor vividas."
-            android:textSize="18sp"/>
+            android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:text="Información"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="El Salon RMR es considerado "
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:text="Horario de Atención"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtHorarioLunes_Viernes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lunes a Viernes: "
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/txtHorarioSabado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sábado: "
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardViewWhatsapp"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -72,6 +120,7 @@
                         android:layout_marginLeft="10dp"
                         />
                     <TextView
+                        android:id="@+id/txtWhatsapp"
                         android:textColor="@android:color/holo_green_dark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +138,9 @@
             android:id="@+id/cardViewFacebook"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -117,6 +168,7 @@
                         android:layout_marginLeft="10dp"
                         />
                     <TextView
+                        android:id="@+id/txtFacebook"
                         android:textColor="@android:color/holo_green_dark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -133,7 +185,9 @@
             android:id="@+id/cardViewInstagram"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -161,6 +215,7 @@
                         android:layout_marginLeft="10dp"
                         />
                     <TextView
+                        android:id="@+id/txtInstagram"
                         android:textColor="@android:color/holo_green_dark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -174,11 +229,27 @@
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/trans_white_rectangle">
+            android:layout_height="wrap_content">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,28 +261,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ana Ivonne Rodríguez Guerra"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Claudia del Carmen Rivas Rivas"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fátima Guadalupe Martíneez Amaya"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="rivas.29rivas05@gmail.com"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textAlignment="center"/>
         </LinearLayout>
 
+        </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
