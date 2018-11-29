@@ -9,20 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
 import com.example.rivas.salon_rmr.Apputilities.GridDecoracion;
-import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
 
 public class FragmentProductoGenerico extends FragmentConsultaFirebase {
 
@@ -73,6 +69,7 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
         administrador = new GridLayoutManager(getContext(), 2);
         recycler.setLayoutManager(administrador);
         adaptadorItems = new AdaptadorProductos(listaItems,getContext());
+        ((AdaptadorProductos)adaptadorItems).setFragmentManager(getFragmentManager());
 
         recycler.addItemDecoration(decoracion);
         recycler.setAdapter(adaptadorItems);
@@ -87,6 +84,8 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
                 }
             });
         }
+
+
         return view;
     }
 

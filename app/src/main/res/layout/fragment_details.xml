@@ -24,6 +24,7 @@
             android:layout_margin="10dp">
 
             <TextView
+                android:id="@+id/textDetalleTitulo"
                 android:text="Información"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -32,15 +33,15 @@
                 android:gravity="center"
                 android:layout_marginBottom="5dp"/>
             <ImageView
-
                 android:src="@drawable/service3"
                 android:layout_margin="5dp"
-                android:id="@+id/imgServicioItem"
+                android:id="@+id/imgDetalleItem"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="170dp"
                 android:scaleType="fitCenter" />
 
             <TextView
+                android:id="@+id/textDetalleNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="informacion"
@@ -48,6 +49,7 @@
                 android:textSize="18sp"/>
 
             <TextView
+                android:id="@+id/textDetalleDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="informacion"
@@ -55,6 +57,7 @@
                 android:textSize="18sp"/>
 
             <TextView
+                android:id="@+id/textDetallePrecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="informacion"
@@ -69,7 +72,6 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/button_fondo"
                 android:text="Reservar"
                 android:textSize="15sp"
                 android:textStyle="bold" />
