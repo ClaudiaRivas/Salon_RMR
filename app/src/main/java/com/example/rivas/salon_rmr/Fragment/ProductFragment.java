@@ -81,8 +81,6 @@ public class ProductFragment extends Fragment {
         //reemplazar el fragmento actual con el nuevo
 
 
-
-
         fragmentTransaction.replace(R.id.fragmentProduct, fragmentProductoGenerico);
         fragmentTransaction.addToBackStack(null);
         //guardar cambios

@@ -144,7 +144,6 @@ public class HomeFragment extends FragmentConsultaFirebase {
         private void cargarFragmento(Item item){
 
             if(fragmentManager==null) return;
-            Toast.makeText(getContext(), "Campos vacios", Toast.LENGTH_SHORT).show();
 
             //Es el fragmento nuevo que quiero mostrar
             DetailsFragment detailsFragment = new DetailsFragment();

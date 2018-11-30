@@ -258,24 +258,28 @@
                 android:padding="5dp"
                 android:textAlignment="center"/>
             <TextView
+                android:id="@+id/txtIntegrante1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ana Ivonne Rodríguez Guerra"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
+                android:id="@+id/txtIntegrante2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Claudia del Carmen Rivas Rivas"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
+                android:id="@+id/txtIntegrante3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fátima Guadalupe Martíneez Amaya"
+                android:text="Fátima Guadalupe Martíneeeeeeez Amaya"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
+                android:id="@+id/txtCorreoIntegrante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="rivas.29rivas05@gmail.com"
@@ -285,6 +289,38 @@
 
         </LinearLayout>
 
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:text="Direccion"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtdireccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="El Salon RMR es considerado "
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
     </LinearLayout>

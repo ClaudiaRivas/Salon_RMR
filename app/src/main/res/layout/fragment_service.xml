@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragmentServicio">
+    android:id="@+id/fragmentServicio"
+    android:background="@drawable/background">
 <LinearLayout
     android:gravity="center"
     android:weightSum="10"

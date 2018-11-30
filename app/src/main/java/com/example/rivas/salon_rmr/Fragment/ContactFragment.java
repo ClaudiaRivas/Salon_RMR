@@ -28,7 +28,7 @@ public class ContactFragment extends Fragment {
     View view;
 
     DocumentReference mDocRef = FirebaseFirestore.getInstance().document("informacion/contacto");
-    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp,txtFacebook,txtInstagram;
+    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp,txtFacebook,txtInstagram, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -49,6 +49,12 @@ public class ContactFragment extends Fragment {
         txtWhatsapp = (TextView) view.findViewById(R.id.txtWhatsapp);
         txtFacebook = (TextView) view.findViewById(R.id.txtFacebook);
         txtInstagram = (TextView) view.findViewById(R.id.txtInstagram);
+        txtCorreoIntegrante = (TextView) view.findViewById(R.id.txtCorreoIntegrante);
+        txtdireccion = (TextView) view.findViewById(R.id.txtdireccion);
+        txtIntegrante1 = (TextView) view.findViewById(R.id.txtIntegrante1);
+        txtIntegrante2 = (TextView) view.findViewById(R.id.txtIntegrante2);
+        txtIntegrante3 = (TextView) view.findViewById(R.id.txtIntegrante3);
+
 
         mDocRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
             @Override
@@ -67,6 +73,11 @@ public class ContactFragment extends Fragment {
         txtWhatsapp.setText( doc.getString("whatsapp")  );
         txtFacebook.setText( doc.getString("facebook")  );
         txtInstagram.setText( doc.getString("instagram")  );
+        txtIntegrante1.setText( doc.getString("integrante1")  );
+        txtIntegrante2.setText( doc.getString("integrante2")  );
+        txtIntegrante3.setText( doc.getString("integrante3")  );
+        txtdireccion.setText( doc.getString("direccion")  );
+        txtCorreoIntegrante.setText( doc.getString("correo_integrante")  );
     }
 
 
