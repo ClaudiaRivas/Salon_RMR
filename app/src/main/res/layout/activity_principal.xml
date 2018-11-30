@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Activities.PrincipalActivity">
-
-    <include layout="@layout/toolbar"/>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"

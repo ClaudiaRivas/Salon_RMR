@@ -2,13 +2,20 @@ package com.example.rivas.salon_rmr.Apputilities;
 
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.rivas.salon_rmr.Fragment.DetailsFragment;
+import com.example.rivas.salon_rmr.Fragment.FragmentProductoGenerico;
 import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
 
@@ -18,6 +25,11 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
 
     private ArrayList<Item> list = new ArrayList<>();
     private Context context;
+    private FragmentManager fragmentManager;
+
+    public void setFragmentManager(FragmentManager manager){
+        fragmentManager = manager;
+    }
 
     public AdaptadorProductos(ArrayList<Item> list, Context context) {
         this.list = list;
@@ -34,7 +46,7 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Item p = list.get(position);
+        final Item p = list.get(position);
 
         //TODO implementar imagenes
         if(p.getId().equals("8")){
@@ -42,8 +54,32 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         }
         holder.txtNombreProducto.setText(p.getNombre());
         holder.txtPrecioProducto.setText(p.getPrecio());
+
+        holder.cardviewItemProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarFragmento(p);
+            }
+        });
+
     }
 
+    private void cargarFragmento(Item item){
+
+        if(fragmentManager==null) return;
+        //Es el fragmento nuevo que quiero mostrar
+        DetailsFragment detailsFragment = new DetailsFragment();
+        detailsFragment.setItem(item);
+        //creo una transaccion de fragmentos
+        FragmentManager transaction = fragmentManager;
+        //iniciar la transaccion
+        FragmentTransaction fragmentTransaction = transaction.beginTransaction();
+        //reemplazar el fragmento actual con el nuevo
+        fragmentTransaction.replace(R.id.fragmentProduct, detailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        //guardar cambios
+        fragmentTransaction.commit();
+    }
 
     @Override
     public int getItemCount() {
@@ -54,6 +90,7 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         private ImageView imgProducto;
         private TextView txtNombreProducto;
         private TextView txtPrecioProducto;
+        private CardView cardviewItemProducto;
 
 
         public ViewHolder(View itemView) {
@@ -61,6 +98,7 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
             imgProducto         = itemView.findViewById(R.id.imgProductoItem);
             txtNombreProducto   = itemView.findViewById(R.id.txtNombreProductoItem);
             txtPrecioProducto   = itemView.findViewById(R.id.txtPrecioProductoItem);
+            cardviewItemProducto =itemView.findViewById(R.id.cardItemProducto);
         }
     }
 }

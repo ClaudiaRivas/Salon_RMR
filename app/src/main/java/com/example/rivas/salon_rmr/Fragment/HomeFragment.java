@@ -4,14 +4,20 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
 import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
@@ -40,13 +46,14 @@ public class HomeFragment extends FragmentConsultaFirebase {
     CollectionReference dbPromociones;
     //adaptador
     AdaptadorPromocion adaptadorPromocion;
+    FragmentManager fragmentManager;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home,container,false);
-
+        fragmentManager = getFragmentManager();
        //instancia al listview
         ListView list = (ListView) view.findViewById(R.id.listview);
         //hacer instancia a la bd en firebase
@@ -106,8 +113,9 @@ public class HomeFragment extends FragmentConsultaFirebase {
             if (itemView == null)
                 itemView = getLayoutInflater().inflate(R.layout.item_promociones, parent, false);
 
+
             //CurrentPromociones es la posicion en la que vamos a estar
-            Item item = listaItems.get(position);
+            final Item item = listaItems.get(position);
             ImageView imageView = (ImageView) itemView.findViewById(R.id.ImagenPromociones);
             imageView.setImageResource(R.drawable.service2);
 
@@ -119,7 +127,36 @@ public class HomeFragment extends FragmentConsultaFirebase {
 
             TextView PrecioTxt = (TextView) itemView.findViewById(R.id.TextPrecio);
             PrecioTxt.setText(item.getPrecio());
+
+            RelativeLayout relativeLayout = itemView.findViewById(R.id.itemPromociones);
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        cargarFragmento(item);
+                        return;
+
+                }
+            });
             return itemView;
+        }
+
+
+        private void cargarFragmento(Item item){
+
+            if(fragmentManager==null) return;
+
+            //Es el fragmento nuevo que quiero mostrar
+            DetailsFragment detailsFragment = new DetailsFragment();
+            detailsFragment.setItem(item);
+            //creo una transaccion de fragmentos
+            FragmentManager transaction = fragmentManager;
+            //iniciar la transaccion
+            FragmentTransaction fragmentTransaction = transaction.beginTransaction();
+            //reemplazar el fragmento actual con el nuevo
+            fragmentTransaction.replace(R.id.fragmentHome, detailsFragment);
+            //fragmentTransaction.addToBackStack(null);
+            //guardar cambios
+            fragmentTransaction.commit();
         }
 
     }

@@ -11,23 +11,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".Activities.PrincipalActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.PrincipalActivity" />
         <activity
             android:name=".Activities.RegistrationActivity"
             android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.LoginActivity"
             android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Activities.ReservationActivity" />
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ReservationActivity"
+            android:screenOrientation="portrait"/>
+
+
+        <service android:name=".FirebaseInstancia">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+
+        <service android:name=".NotificacionFirebase">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

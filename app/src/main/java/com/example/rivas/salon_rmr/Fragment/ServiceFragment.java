@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorServicios;
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
 import com.example.rivas.salon_rmr.R;
@@ -37,6 +38,7 @@ public class ServiceFragment extends FragmentConsultaFirebase {
         list.setHasFixedSize(true);
 
         adaptadorItems = new AdaptadorServicios(listaItems,getContext());
+        ((AdaptadorServicios)adaptadorItems).setFragmentManager(getFragmentManager());
 
         // use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
