@@ -10,7 +10,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentConsultaFirebase extends Fragment {
+public class FragmentConsultaFirebase extends BaseFragment {
 
     //adaptador
     protected RecyclerView.Adapter adaptadorItems;

@@ -12,7 +12,6 @@ public class BaseFragment extends Fragment {
     FragmentNavigation mFragmentNavigation;
     int mInt = 0;
 
-
     public static final String ARGS_INSTANCE = "instance";
 
     @Override

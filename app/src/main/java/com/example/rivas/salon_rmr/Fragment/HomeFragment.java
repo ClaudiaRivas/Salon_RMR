@@ -48,12 +48,17 @@ public class HomeFragment extends FragmentConsultaFirebase {
     AdaptadorPromocion adaptadorPromocion;
     FragmentManager fragmentManager;
 
+    public HomeFragment(){
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home,container,false);
-        fragmentManager = getFragmentManager();
+
+
+        //fragmentManager = getFragmentManager();
        //instancia al listview
         ListView list = (ListView) view.findViewById(R.id.listview);
         //hacer instancia a la bd en firebase
@@ -62,9 +67,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
         adaptadorPromocion = new AdaptadorPromocion(getContext(),listaItems);
         //establecer el adaptador a la listview
         list.setAdapter(adaptadorPromocion);
-        /**
-         * Registra cambios en la bd mediante el evento Document Changed
-         */
+
         dbPromociones.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
@@ -132,7 +135,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        cargarFragmento(item);
+                        //cargarFragmento(item);
                         return;
 
                 }
@@ -141,10 +144,12 @@ public class HomeFragment extends FragmentConsultaFirebase {
         }
 
 
+
         private void cargarFragmento(Item item){
 
             if(fragmentManager==null) return;
 
+            /*
             //Es el fragmento nuevo que quiero mostrar
             DetailsFragment detailsFragment = new DetailsFragment();
             detailsFragment.setItem(item);
@@ -157,7 +162,9 @@ public class HomeFragment extends FragmentConsultaFirebase {
             //fragmentTransaction.addToBackStack(null);
             //guardar cambios
             fragmentTransaction.commit();
+            */
         }
+
 
     }
 }

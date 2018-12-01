@@ -13,9 +13,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.example.rivas.salon_rmr.Apputilities.BaseFragment;
 import com.example.rivas.salon_rmr.R;
 
-public class ProductFragment extends Fragment {
+public class ProductFragment extends BaseFragment {
 
 
     CardView cardViewcabello, cardViewjoyeria , cardViewunas , cardViewmaquillaje;

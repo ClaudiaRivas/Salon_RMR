@@ -58,12 +58,14 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         holder.cardviewItemProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cargarFragmento(p);
+                //cargarFragmento(p);
             }
         });
 
     }
 
+
+    /*
     private void cargarFragmento(Item item){
 
         if(fragmentManager==null) return;
@@ -79,7 +81,7 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         fragmentTransaction.addToBackStack(null);
         //guardar cambios
         fragmentTransaction.commit();
-    }
+    }*/
 
     @Override
     public int getItemCount() {

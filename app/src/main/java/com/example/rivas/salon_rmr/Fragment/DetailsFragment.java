@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.rivas.salon_rmr.Apputilities.BaseFragment;
 import com.example.rivas.salon_rmr.Model.Item;
 import com.example.rivas.salon_rmr.R;
 
-public class DetailsFragment extends Fragment {
+public class DetailsFragment extends BaseFragment {
 
     TextView txtDetalleTitulo,txtDetalleNombre,txtDetalleDescripcion,txtDetallePrecio;
     ImageView imagDetalleItem;
