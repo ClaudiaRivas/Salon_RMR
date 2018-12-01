@@ -38,12 +38,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.android.support:multidex:1.0.3'
-
     //almacenamiento
     implementation "com.google.firebase:firebase-storage:16.0.1"
     //slider
     implementation 'com.github.smarteist:autoimageslider:1.1.1'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
+    //para menejo de varios fragmentos
+    implementation 'com.ncapdevi:frag-nav:2.0.2'
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
