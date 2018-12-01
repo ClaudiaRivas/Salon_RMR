@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 public class BaseFragment extends Fragment {
-    FragmentNavigation mFragmentNavigation;
+    protected FragmentNavigation mFragmentNavigation;
     int mInt = 0;
 
     public static final String ARGS_INSTANCE = "instance";

@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
@@ -54,7 +55,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home,container,false);
 
 
@@ -79,8 +80,28 @@ public class HomeFragment extends FragmentConsultaFirebase {
         sliderLayout =  view.findViewById(R.id.imageSwitcher);
         setSliderViews();
 
+
+        /** a la lista agregar el evento on click*/
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                cargarFragmento(i);
+            }
+        });
+
         return view;
     }
+
+
+    /**hacer este metodo en el fragmento*/
+    private void cargarFragmento(int i){
+        if (mFragmentNavigation != null) {
+            DetailsFragment mFragment = new DetailsFragment();
+            mFragment.setItem( listaItems.get(i) );
+            mFragmentNavigation.pushFragment(mFragment);
+        }
+    }
+
 
     @Override
     protected void actualizarDatos(List<DocumentChange> cambios) {
@@ -130,39 +151,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
 
             TextView PrecioTxt = (TextView) itemView.findViewById(R.id.TextPrecio);
             PrecioTxt.setText(item.getPrecio());
-
-            RelativeLayout relativeLayout = itemView.findViewById(R.id.itemPromociones);
-            relativeLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                        //cargarFragmento(item);
-                        return;
-
-                }
-            });
             return itemView;
-        }
-
-
-
-        private void cargarFragmento(Item item){
-
-            if(fragmentManager==null) return;
-
-            /*
-            //Es el fragmento nuevo que quiero mostrar
-            DetailsFragment detailsFragment = new DetailsFragment();
-            detailsFragment.setItem(item);
-            //creo una transaccion de fragmentos
-            FragmentManager transaction = fragmentManager;
-            //iniciar la transaccion
-            FragmentTransaction fragmentTransaction = transaction.beginTransaction();
-            //reemplazar el fragmento actual con el nuevo
-            fragmentTransaction.replace(R.id.fragmentHome, detailsFragment);
-            //fragmentTransaction.addToBackStack(null);
-            //guardar cambios
-            fragmentTransaction.commit();
-            */
         }
 
 

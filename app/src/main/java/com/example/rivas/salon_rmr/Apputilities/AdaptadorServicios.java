@@ -55,30 +55,8 @@ public class AdaptadorServicios extends RecyclerView.Adapter<AdaptadorServicios.
         viewHolder.txtDescripcionServicio.setText(s.getDescripcion());
         viewHolder.txtPrecioServicio.setText(s.getPrecio());
 
-        viewHolder.cardviewItemProducto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cargarFragmento(s);
-            }
-        });
     }
 
-    private void cargarFragmento(Item item){
-
-        if(fragmentManager==null) return;
-        //Es el fragmento nuevo que quiero mostrar
-        DetailsFragment detailsFragment = new DetailsFragment();
-        detailsFragment.setItem(item);
-        //creo una transaccion de fragmentos
-        FragmentManager transaction = fragmentManager;
-        //iniciar la transaccion
-        FragmentTransaction fragmentTransaction = transaction.beginTransaction();
-        //reemplazar el fragmento actual con el nuevo
-        fragmentTransaction.replace(R.id.fragmentServicio, detailsFragment);
-        fragmentTransaction.addToBackStack(null);
-        //guardar cambios
-        fragmentTransaction.commit();
-    }
 
     @Override
     public int getItemCount() {
