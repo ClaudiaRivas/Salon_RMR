@@ -3,6 +3,7 @@ package com.example.rivas.salon_rmr.Fragment;
 
 
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +31,7 @@ public class ContactFragment extends Fragment {
 
     DocumentReference mDocRef = FirebaseFirestore.getInstance().document("informacion/contacto");
     TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp, txtinformacion,txtFacebook,txtInstagram, txtHorarioDomingo, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
+    CardView cardViewWhatsapp,cardViewFacebook,cardViewInstagram;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -56,6 +59,35 @@ public class ContactFragment extends Fragment {
         txtIntegrante2 = (TextView) view.findViewById(R.id.txtIntegrante2);
         txtIntegrante3 = (TextView) view.findViewById(R.id.txtIntegrante3);
         txtinformacion = (TextView) view.findViewById(R.id.txtinformacion);
+
+        cardViewWhatsapp = (CardView)view.findViewById(R.id.cardViewWhatsapp);
+        cardViewFacebook = (CardView)view.findViewById(R.id.cardViewFacebook);
+        cardViewInstagram = (CardView)view.findViewById(R.id.cardViewInstagram);
+
+
+        cardViewWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Whatsapp", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cardViewFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Facebook", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cardViewInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Instagram", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         mDocRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
