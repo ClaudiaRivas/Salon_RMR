@@ -27,6 +27,7 @@
             <TextView
                 android:id="@+id/textDetalleTitulo"
                 android:text="Información"
+                android:textColor="@color/primaryColor"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
                 android:id="@+id/textDetalleNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primaryColor"
                 android:text="informacion"
                 android:gravity="center"
                 android:textSize="18sp"/>
@@ -53,6 +55,7 @@
                 android:id="@+id/textDetalleDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primaryLightColor"
                 android:text="informacion"
                 android:gravity="center"
                 android:textSize="18sp"/>
@@ -61,6 +64,7 @@
                 android:id="@+id/textDetallePrecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_green_dark"
                 android:text="informacion"
                 android:gravity="center"
                 android:textSize="18sp"/>
@@ -75,6 +79,8 @@
                 android:layout_marginTop="8dp"
                 android:text="Reservar"
                 android:textSize="15sp"
+                android:background="@drawable/button_fondo"
+                android:textColor="@drawable/button_texto"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.rivas.salon_rmr.Fragment;
 
 
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import javax.annotation.Nullable;
 
@@ -28,7 +30,8 @@ public class ContactFragment extends Fragment {
     View view;
 
     DocumentReference mDocRef = FirebaseFirestore.getInstance().document("informacion/contacto");
-    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp,txtFacebook,txtInstagram, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
+    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp, txtinformacion,txtFacebook,txtInstagram, txtHorarioDomingo, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
+    CardView cardViewWhatsapp,cardViewFacebook,cardViewInstagram;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -46,6 +49,7 @@ public class ContactFragment extends Fragment {
 
         txtHorarioLunes_Viernes = (TextView) view.findViewById(R.id.txtHorarioLunes_Viernes);
         txtHorarioSabado = (TextView) view.findViewById(R.id.txtHorarioSabado);
+        txtHorarioDomingo = (TextView) view.findViewById(R.id.txtHorarioDomingo);
         txtWhatsapp = (TextView) view.findViewById(R.id.txtWhatsapp);
         txtFacebook = (TextView) view.findViewById(R.id.txtFacebook);
         txtInstagram = (TextView) view.findViewById(R.id.txtInstagram);
@@ -54,6 +58,36 @@ public class ContactFragment extends Fragment {
         txtIntegrante1 = (TextView) view.findViewById(R.id.txtIntegrante1);
         txtIntegrante2 = (TextView) view.findViewById(R.id.txtIntegrante2);
         txtIntegrante3 = (TextView) view.findViewById(R.id.txtIntegrante3);
+        txtinformacion = (TextView) view.findViewById(R.id.txtinformacion);
+
+        cardViewWhatsapp = (CardView)view.findViewById(R.id.cardViewWhatsapp);
+        cardViewFacebook = (CardView)view.findViewById(R.id.cardViewFacebook);
+        cardViewInstagram = (CardView)view.findViewById(R.id.cardViewInstagram);
+
+
+        cardViewWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Whatsapp", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cardViewFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Facebook", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cardViewInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO pendiente referencia
+                Toast.makeText(getContext(), "Instagram", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         mDocRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
@@ -70,6 +104,7 @@ public class ContactFragment extends Fragment {
     private void actualizar(DocumentSnapshot doc){
         txtHorarioLunes_Viernes.setText( "Lunes a viernes : "+doc.getString("horarios_lunes_viernes")  );
         txtHorarioSabado.setText( "Sábado : "+ doc.getString("horarios_sabado")  );
+        txtHorarioDomingo.setText( "Domingo : "+ doc.getString("horarios_domingo")  );
         txtWhatsapp.setText( doc.getString("whatsapp")  );
         txtFacebook.setText( doc.getString("facebook")  );
         txtInstagram.setText( doc.getString("instagram")  );
@@ -78,6 +113,7 @@ public class ContactFragment extends Fragment {
         txtIntegrante3.setText( doc.getString("integrante3")  );
         txtdireccion.setText( doc.getString("direccion")  );
         txtCorreoIntegrante.setText( doc.getString("correo_integrante")  );
+        txtinformacion.setText( doc.getString("informacion_salon")  );
     }
 
 

@@ -22,6 +22,7 @@
         android:layout_toRightOf="@+id/ImagenPromociones"
         android:paddingTop="5dp"
         android:text="Nombre"
+        android:textColor="@color/primaryColor"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -35,6 +36,7 @@
         android:layout_marginTop="-3dp"
         android:layout_toRightOf="@+id/ImagenPromociones"
         android:paddingLeft="1dp"
+        android:textColor="@color/primaryLightColor"
         android:paddingRight="1dp"
         android:paddingTop="5dp"
         android:text="Descripcion"
@@ -47,6 +49,7 @@
         android:gravity="center"
         android:layout_below="@id/TxtSubtema"
         android:id="@+id/TextPrecio"
+        android:textColor="@android:color/holo_green_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"

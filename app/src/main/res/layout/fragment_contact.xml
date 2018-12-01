@@ -34,14 +34,17 @@
                 <TextView
                     android:text="Información"
                     android:textStyle="bold"
+                    android:textColor="@color/primaryColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
+                    android:id="@+id/txtinformacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="El Salon RMR es considerado "
+                    android:textColor="@color/primaryLightColor"
+                    android:text="El Salon M-N es considerado "
                     android:textSize="18sp"/>
 
             </LinearLayout>
@@ -61,11 +64,13 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                android:layout_marginTop="5dp">
 
                 <TextView
-                    android:text="Horario de Atención"
+                    android:text="Horarios de Atención"
                     android:textStyle="bold"
+                    android:textColor="@color/primaryColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
@@ -74,13 +79,22 @@
                     android:id="@+id/txtHorarioLunes_Viernes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/primaryLightColor"
                     android:text="Lunes a Viernes: "
                     android:textSize="18sp"/>
                 <TextView
                     android:id="@+id/txtHorarioSabado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/primaryLightColor"
                     android:text="Sábado: "
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/txtHorarioDomingo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primaryLightColor"
+                    android:text="Domingo: "
                     android:textSize="18sp"/>
 
             </LinearLayout>
@@ -116,6 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="WhatsApp"
+                        android:textColor="@color/primaryColor"
                         android:textSize="18sp"
                         android:layout_marginLeft="10dp"
                         />
@@ -163,6 +178,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/primaryColor"
                         android:text="Facebook"
                         android:textSize="18sp"
                         android:layout_marginLeft="10dp"
@@ -211,6 +227,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Instagram"
+                        android:textColor="@color/primaryColor"
                         android:textSize="18sp"
                         android:layout_marginLeft="10dp"
                         />
@@ -253,7 +270,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Aplicacion creada por:"
+                android:text="Aplicación creada por:"
+                android:textStyle="bold"
+                android:textColor="@color/primaryColor"
                 android:textSize="18sp"
                 android:padding="5dp"
                 android:textAlignment="center"/>
@@ -261,7 +280,9 @@
                 android:id="@+id/txtIntegrante1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:text="Ana Ivonne Rodríguez Guerra"
+                android:textColor="@color/primaryLightColor"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
@@ -269,6 +290,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Claudia del Carmen Rivas Rivas"
+                android:textColor="@color/primaryLightColor"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
@@ -276,12 +298,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Fátima Guadalupe Martíneeeeeeez Amaya"
+                android:textColor="@color/primaryLightColor"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
             <TextView
                 android:id="@+id/txtCorreoIntegrante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primaryLightColor"
                 android:text="rivas.29rivas05@gmail.com"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
@@ -307,8 +331,10 @@
                 android:layout_margin="10dp">
 
                 <TextView
-                    android:text="Direccion"
+                    android:text="Dirección"
+                    android:textColor="@color/primaryColor"
                     android:textStyle="bold"
+                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
@@ -316,6 +342,7 @@
                 <TextView
                     android:id="@+id/txtdireccion"
                     android:layout_width="match_parent"
+                    android:textColor="@color/primaryLightColor"
                     android:layout_height="wrap_content"
                     android:text="El Salon RMR es considerado "
                     android:textSize="18sp"/>
