@@ -28,7 +28,7 @@ public class ContactFragment extends Fragment {
     View view;
 
     DocumentReference mDocRef = FirebaseFirestore.getInstance().document("informacion/contacto");
-    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp,txtFacebook,txtInstagram, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
+    TextView txtHorarioLunes_Viernes,txtHorarioSabado,txtWhatsapp, txtinformacion,txtFacebook,txtInstagram, txtHorarioDomingo, txtIntegrante1, txtIntegrante2, txtIntegrante3,txtCorreoIntegrante,txtdireccion;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -46,6 +46,7 @@ public class ContactFragment extends Fragment {
 
         txtHorarioLunes_Viernes = (TextView) view.findViewById(R.id.txtHorarioLunes_Viernes);
         txtHorarioSabado = (TextView) view.findViewById(R.id.txtHorarioSabado);
+        txtHorarioDomingo = (TextView) view.findViewById(R.id.txtHorarioDomingo);
         txtWhatsapp = (TextView) view.findViewById(R.id.txtWhatsapp);
         txtFacebook = (TextView) view.findViewById(R.id.txtFacebook);
         txtInstagram = (TextView) view.findViewById(R.id.txtInstagram);
@@ -54,6 +55,7 @@ public class ContactFragment extends Fragment {
         txtIntegrante1 = (TextView) view.findViewById(R.id.txtIntegrante1);
         txtIntegrante2 = (TextView) view.findViewById(R.id.txtIntegrante2);
         txtIntegrante3 = (TextView) view.findViewById(R.id.txtIntegrante3);
+        txtinformacion = (TextView) view.findViewById(R.id.txtinformacion);
 
 
         mDocRef.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
@@ -70,6 +72,7 @@ public class ContactFragment extends Fragment {
     private void actualizar(DocumentSnapshot doc){
         txtHorarioLunes_Viernes.setText( "Lunes a viernes : "+doc.getString("horarios_lunes_viernes")  );
         txtHorarioSabado.setText( "Sábado : "+ doc.getString("horarios_sabado")  );
+        txtHorarioDomingo.setText( "Domingo : "+ doc.getString("horarios_domingo")  );
         txtWhatsapp.setText( doc.getString("whatsapp")  );
         txtFacebook.setText( doc.getString("facebook")  );
         txtInstagram.setText( doc.getString("instagram")  );
@@ -78,6 +81,7 @@ public class ContactFragment extends Fragment {
         txtIntegrante3.setText( doc.getString("integrante3")  );
         txtdireccion.setText( doc.getString("direccion")  );
         txtCorreoIntegrante.setText( doc.getString("correo_integrante")  );
+        txtinformacion.setText( doc.getString("informacion_salon")  );
     }
 
 

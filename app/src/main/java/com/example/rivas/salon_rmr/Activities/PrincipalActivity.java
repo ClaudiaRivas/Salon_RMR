@@ -28,14 +28,15 @@ public class PrincipalActivity extends AppCompatActivity {
     ViewPager viewPager;
     AdaptadorFragmento adaptador;
     private Toolbar toolbar;
-
+    private MenuItem menuItem;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+         bottomNav = findViewById(R.id.bottom_navigation);
 
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -48,6 +49,26 @@ public class PrincipalActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (menuItem != null)
+                    menuItem.setChecked(false);
+                else
+                    bottomNav.getMenu().getItem(0).setChecked(false);
+                bottomNav.getMenu().getItem(position).setChecked(true);
+                menuItem = bottomNav.getMenu().getItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
