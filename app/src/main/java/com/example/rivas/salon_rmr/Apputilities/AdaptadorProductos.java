@@ -25,11 +25,6 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
 
     private ArrayList<Item> list = new ArrayList<>();
     private Context context;
-    private FragmentManager fragmentManager;
-
-    public void setFragmentManager(FragmentManager manager){
-        fragmentManager = manager;
-    }
 
     public AdaptadorProductos(ArrayList<Item> list, Context context) {
         this.list = list;
@@ -43,19 +38,14 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         return holder;
     }
 
-
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Item p = list.get(position);
 
         //TODO implementar imagenes
-        if(p.getId().equals("8")){
-            holder.imgProducto.setImageResource(R.drawable.joyeria2);
-        }
+
         holder.txtNombreProducto.setText(p.getNombre());
         holder.txtPrecioProducto.setText(p.getPrecio());
-
-
     }
 
     @Override
@@ -69,13 +59,12 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         private TextView txtPrecioProducto;
         private CardView cardviewItemProducto;
 
-
         public ViewHolder(View itemView) {
             super(itemView);
-            imgProducto         = itemView.findViewById(R.id.imgProductoItem);
-            txtNombreProducto   = itemView.findViewById(R.id.txtNombreProductoItem);
-            txtPrecioProducto   = itemView.findViewById(R.id.txtPrecioProductoItem);
-            cardviewItemProducto =itemView.findViewById(R.id.cardItemProducto);
+            imgProducto          = itemView.findViewById(R.id.imgProductoItem);
+            txtNombreProducto    = itemView.findViewById(R.id.txtNombreProductoItem);
+            txtPrecioProducto    = itemView.findViewById(R.id.txtPrecioProductoItem);
+            cardviewItemProducto = itemView.findViewById(R.id.cardItemProducto);
         }
     }
 }

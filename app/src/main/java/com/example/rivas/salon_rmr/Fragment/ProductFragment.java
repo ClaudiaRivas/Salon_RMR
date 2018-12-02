@@ -18,9 +18,7 @@ import com.example.rivas.salon_rmr.R;
 
 public class ProductFragment extends BaseFragment {
 
-
     CardView cardViewcabello, cardViewjoyeria , cardViewunas , cardViewmaquillaje;
-
 
     @Nullable
     @Override
@@ -31,7 +29,6 @@ public class ProductFragment extends BaseFragment {
         cardViewjoyeria = (CardView)view.findViewById(R.id.cardviewjoyeria);
         cardViewmaquillaje = (CardView)view.findViewById(R.id.cardviewmaquillaje);
         cardViewunas = (CardView)view.findViewById(R.id.cardviewunas);
-
 
         cardViewcabello.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,26 +62,16 @@ public class ProductFragment extends BaseFragment {
             }
         });
         return view;
-
     }
 
-
     private void cargarFragmento(String titulo,String referencia){
-        //Es el fragmento nuevo que quiero mostrar
-        FragmentProductoGenerico fragmentProductoGenerico = new FragmentProductoGenerico();
-        //establecer titulo y referencia de la BD
-        fragmentProductoGenerico.setTitulo(titulo);
-        fragmentProductoGenerico.setReferencia(referencia);
-        //creo una transaccion de fragmentos
-        FragmentManager transaction = getFragmentManager();
-        //iniciar la transaccion
-        FragmentTransaction fragmentTransaction = transaction.beginTransaction();
-        //reemplazar el fragmento actual con el nuevo
-
-
-        fragmentTransaction.replace(R.id.fragmentProduct, fragmentProductoGenerico);
-        fragmentTransaction.addToBackStack(null);
-        //guardar cambios
-        fragmentTransaction.commit();
+        if (mFragmentNavigation != null) {
+            //Es el fragmento nuevo que quiero mostrar
+            FragmentProductoGenerico mFragment = new FragmentProductoGenerico();
+            //establecer titulo y referencia de la BD
+            mFragment.setTitulo(titulo);
+            mFragment.setReferencia(referencia);
+            mFragmentNavigation.pushFragment(mFragment);
+        }
     }
 }
