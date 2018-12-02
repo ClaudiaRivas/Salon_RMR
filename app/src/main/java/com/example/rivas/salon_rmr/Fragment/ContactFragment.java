@@ -2,6 +2,9 @@ package com.example.rivas.salon_rmr.Fragment;
 
 
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -76,16 +79,30 @@ public class ContactFragment extends Fragment {
         cardViewFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ESO VA EN EL CARDVIEW DEL FACEBOOK
                 //TODO pendiente referencia
-                Toast.makeText(getContext(), "Facebook", Toast.LENGTH_SHORT).show();
+                String facebookId = "fb://page/244840368866574";
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId )));
             }
         });
 
         cardViewInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ESTO EN EL CARDVIEW DEL INSTAGRAM
                 //TODO pendiente referencia
-                Toast.makeText(getContext(), "Instagram", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Instagram", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse("http://instagram.com/milideescobar/?utm_source=ig_profile_share&igshid=1pngwgpz4nis8");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.instagram.android");
+
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://instagram.com/milideescobar/?utm_source=ig_profile_share&igshid=1pngwgpz4nis8")));
+                }
             }
         });
 

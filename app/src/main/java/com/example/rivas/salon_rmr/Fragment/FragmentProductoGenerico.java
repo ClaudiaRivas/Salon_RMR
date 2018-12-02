@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
@@ -55,27 +56,26 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
 
         TextView txtTitulo = (TextView) view.findViewById(R.id.txtTituloProductoGenerico);
 
-        if(titulo!=null){
+        if (titulo != null) {
             txtTitulo.setText(titulo);
-        }else{
+        } else {
             txtTitulo.setText("Productos");
         }
 
         recycler = view.findViewById(R.id.reciclerProductoGenerico);
         recycler.setHasFixedSize(true);
 
-        decoracion = new GridDecoracion(2,50,true);
+        decoracion = new GridDecoracion(2, 50, true);
 
         administrador = new GridLayoutManager(getContext(), 2);
         recycler.setLayoutManager(administrador);
-        adaptadorItems = new AdaptadorProductos(listaItems,getContext());
-        ((AdaptadorProductos)adaptadorItems).setFragmentManager(getFragmentManager());
+        adaptadorItems = new AdaptadorProductos(listaItems, getContext());
+        ((AdaptadorProductos) adaptadorItems).setFragmentManager(getFragmentManager());
 
         recycler.addItemDecoration(decoracion);
         recycler.setAdapter(adaptadorItems);
-
         //si tiene referencia de la BD
-        if(referencia!=null){
+        if (referencia != null) {
             dbReferencia = FirebaseFirestore.getInstance().collection(referencia);
             dbReferencia.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
@@ -84,9 +84,6 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
                 }
             });
         }
-
-
         return view;
     }
-
 }

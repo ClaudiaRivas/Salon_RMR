@@ -22,8 +22,6 @@ public class BaseFragment extends Fragment {
             mInt = args.getInt(ARGS_INSTANCE);
         }
     }
-//hola
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

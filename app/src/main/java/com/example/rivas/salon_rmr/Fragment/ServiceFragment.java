@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorServicios;
@@ -58,7 +59,23 @@ public class ServiceFragment extends FragmentConsultaFirebase {
                 actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
             }
         });
+
+
+        /** a la lista agregar el evento on click*/
+        /**  list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                cargarFragmento(i);
+            }
+        });*/
         return view;
     }
-
+    /**hacer este metodo en el fragmento*/
+    private void cargarFragmento(int i) {
+        if (mFragmentNavigation != null) {
+            DetailsFragment mFragment = new DetailsFragment();
+            mFragment.setItem(listaItems.get(i));
+            mFragmentNavigation.pushFragment(mFragment);
+        }
+    }
 }
