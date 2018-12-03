@@ -39,11 +39,13 @@ public class AdaptadorServicios extends RecyclerView.Adapter<AdaptadorServicios.
     public void onBindViewHolder(@NonNull AdaptadorServicios.ViewHolder viewHolder, int i) {
         final Item s = list.get(i);
 
-        //TODO Agregar imagen
-
         viewHolder.txtNombreServicio.setText(s.getNombre());
         viewHolder.txtDescripcionServicio.setText(s.getDescripcion());
         viewHolder.txtPrecioServicio.setText(s.getPrecio());
+
+        if(s.getImgItem()!=null){
+            viewHolder.imgServicio.setImageBitmap(s.getImgItem());
+        }
     }
 
     @Override

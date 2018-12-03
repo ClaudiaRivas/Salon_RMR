@@ -63,8 +63,8 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
 
         toolbar = findViewById(R.id.toolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.hide();
 
 
 

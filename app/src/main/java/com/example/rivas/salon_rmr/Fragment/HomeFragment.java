@@ -129,7 +129,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
             //CurrentPromociones es la posicion en la que vamos a estar
             final Item item = listaItems.get(position);
             ImageView imageView = (ImageView) itemView.findViewById(R.id.ImagenPromociones);
-            imageView.setImageResource(R.drawable.service2);
+            //imageView.setImageResource(R.drawable.service2);
 
             TextView TemaTxt = (TextView) itemView.findViewById(R.id.TxtTema);
             TemaTxt.setText(item.getNombre());
@@ -141,7 +141,5 @@ public class HomeFragment extends FragmentConsultaFirebase {
             PrecioTxt.setText(item.getPrecio());
             return itemView;
         }
-
-
     }
 }

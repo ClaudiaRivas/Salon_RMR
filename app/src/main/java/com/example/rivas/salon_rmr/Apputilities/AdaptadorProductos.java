@@ -42,10 +42,13 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Item p = list.get(position);
 
-        //TODO implementar imagenes
-
         holder.txtNombreProducto.setText(p.getNombre());
         holder.txtPrecioProducto.setText(p.getPrecio());
+        if(p.getImgItem()!=null){
+            holder.imgProducto.setImageBitmap(p.getImgItem());
+        }
+
+
     }
 
     @Override

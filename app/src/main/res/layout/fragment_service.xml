@@ -3,33 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragmentServicio">
-<LinearLayout
-    android:gravity="center"
-    android:weightSum="10"
-    android:orientation = "vertical"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-
-    <RelativeLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Servicios"
-            android:textSize="25sp"
-            android:textColor="@color/primaryTextColor"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
-
     <android.support.v7.widget.RecyclerView
-        android:layout_weight="9"
-        android:scrollbars="vertical"
+        android:scrollbars="none"
         android:id="@+id/listaServicios"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
-</LinearLayout>
+        android:layout_height="match_parent" />
 </RelativeLayout>

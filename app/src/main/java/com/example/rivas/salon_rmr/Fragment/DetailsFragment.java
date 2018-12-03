@@ -37,18 +37,22 @@ public class DetailsFragment extends BaseFragment {
 
         view = inflater.inflate(R.layout.fragment_details, container, false);
 
-        txtDetalleTitulo = view.findViewById(R. id.textDetalleTitulo);
-        txtDetalleNombre = view.findViewById(R. id.textDetalleNombre);
-        txtDetalleDescripcion = view.findViewById(R. id.textDetalleDescripcion);
-        txtDetallePrecio = view.findViewById(R. id.textDetallePrecio);
-        imagDetalleItem = view.findViewById(R. id.imgDetalleItem);
-        btnReservar = view.findViewById(R. id.btnReservar);
+        txtDetalleTitulo        = view.findViewById(R. id.textDetalleTitulo);
+        txtDetalleNombre        = view.findViewById(R. id.textDetalleNombre);
+        txtDetalleDescripcion   = view.findViewById(R. id.textDetalleDescripcion);
+        txtDetallePrecio        = view.findViewById(R. id.textDetallePrecio);
+        imagDetalleItem         = view.findViewById(R. id.imgDetalleItem);
+        btnReservar             = view.findViewById(R. id.btnReservar);
 
         if(item!=null){
             //txtDetalleTitulo.setText(item.ge);
             txtDetalleNombre.setText(item.getNombre());
             txtDetalleDescripcion.setText(item.getDescripcion());
             txtDetallePrecio.setText(item.getPrecio());
+
+            if(item.getImgItem()!=null){
+                imagDetalleItem.setImageBitmap(item.getImgItem());
+            }
         }
         return view;
 

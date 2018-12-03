@@ -3,10 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
     android:id="@+id/cardItemProducto"
-    >
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:gravity="center_horizontal"
@@ -15,6 +13,7 @@
         android:orientation="vertical">
 
     <ImageView
+        android:padding="5dp"
         android:id="@+id/imgProductoItem"
         android:layout_width="match_parent"
         android:layout_height="150dp"

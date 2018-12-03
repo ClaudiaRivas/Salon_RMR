@@ -20,6 +20,12 @@ public class ProductFragment extends BaseFragment {
 
     CardView cardViewcabello, cardViewjoyeria , cardViewunas , cardViewmaquillaje;
 
+    private static FragmentProductoGenerico mFragmentCabello    = new FragmentProductoGenerico();
+    private static FragmentProductoGenerico mFragmentJoyeria    = new FragmentProductoGenerico();
+    private static FragmentProductoGenerico mFragmentMaquillaje = new FragmentProductoGenerico();
+    private static FragmentProductoGenerico mFragmentUnas       = new FragmentProductoGenerico();
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,11 +36,13 @@ public class ProductFragment extends BaseFragment {
         cardViewmaquillaje = (CardView)view.findViewById(R.id.cardviewmaquillaje);
         cardViewunas = (CardView)view.findViewById(R.id.cardviewunas);
 
+        initProductFragment();
+
         cardViewcabello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de cabello","producto_cabello");
+                cargarFragmento(mFragmentCabello);
             }
         });
 
@@ -42,7 +50,7 @@ public class ProductFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de joyeria","producto_joyeria");
+                cargarFragmento(mFragmentJoyeria);
             }
         });
 
@@ -50,7 +58,7 @@ public class ProductFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de maquillaje","producto_maquillaje");
+                cargarFragmento(mFragmentMaquillaje);
             }
         });
 
@@ -58,20 +66,38 @@ public class ProductFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //TODO pendiente referencia
-                cargarFragmento("Productos de uñas","producto_uñas");
+                cargarFragmento(mFragmentUnas);
             }
         });
         return view;
     }
 
-    private void cargarFragmento(String titulo,String referencia){
+
+    private void initProductFragment(){
+        //inicializar el cabello
+        mFragmentCabello.setTitulo("Productos de cabello");
+        mFragmentCabello.setReferencia("producto_cabello");
+        mFragmentCabello.setRutaImg("img_producto/cabello");
+
+        //inicializar la joyeria
+        mFragmentJoyeria.setTitulo("Productos de joyeria");
+        mFragmentJoyeria.setReferencia("producto_joyeria");
+        mFragmentJoyeria.setRutaImg("img_producto/joyeria");
+
+        //inicializar el maquillaje
+        mFragmentMaquillaje.setTitulo("Productos de maquillaje");
+        mFragmentMaquillaje.setReferencia("producto_maquillaje");
+        mFragmentMaquillaje.setRutaImg("img_producto/maquillaje");
+
+        //inicializar las unias
+        mFragmentUnas.setTitulo("Productos de uñas");
+        mFragmentUnas.setReferencia("producto_uñas");
+        mFragmentUnas.setRutaImg("img_producto/uñas");
+    }
+
+    private void cargarFragmento(FragmentProductoGenerico frmProducto){
         if (mFragmentNavigation != null) {
-            //Es el fragmento nuevo que quiero mostrar
-            FragmentProductoGenerico mFragment = new FragmentProductoGenerico();
-            //establecer titulo y referencia de la BD
-            mFragment.setTitulo(titulo);
-            mFragment.setReferencia(referencia);
-            mFragmentNavigation.pushFragment(mFragment);
+            mFragmentNavigation.pushFragment(frmProducto);
         }
     }
 }

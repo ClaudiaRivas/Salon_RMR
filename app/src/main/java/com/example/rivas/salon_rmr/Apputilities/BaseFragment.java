@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 public class BaseFragment extends Fragment {
     protected FragmentNavigation mFragmentNavigation;
@@ -34,5 +35,24 @@ public class BaseFragment extends Fragment {
 
     public interface FragmentNavigation {
         public void pushFragment(Fragment fragment);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("CAMBIO","Cambios en : on destroy ");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("CAMBIO","Cambios en : on resume ");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("CAMBIO","Cambios en : on start ");
     }
 }
