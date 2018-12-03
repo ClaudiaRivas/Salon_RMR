@@ -40,14 +40,12 @@ public class HomeFragment extends FragmentConsultaFirebase {
 
     SliderLayout sliderLayout;
 
-    private ImageSwitcher imageSwitcher;
     private int[] galeria = {R.drawable.p, R.drawable.p1, R.drawable.p2, R.drawable.p4};
 
     //firebase
     CollectionReference dbPromociones;
     //adaptador
     AdaptadorPromocion adaptadorPromocion;
-    FragmentManager fragmentManager;
 
     public HomeFragment(){
 
@@ -58,16 +56,14 @@ public class HomeFragment extends FragmentConsultaFirebase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home,container,false);
 
-
-        //fragmentManager = getFragmentManager();
        //instancia al listview
-        ListView list = (ListView) view.findViewById(R.id.listview);
+        ListView listView = (ListView) view.findViewById(R.id.listview);
         //hacer instancia a la bd en firebase
         dbPromociones = FirebaseFirestore.getInstance().collection("promociones");
         //crear adaptador
         adaptadorPromocion = new AdaptadorPromocion(getContext(),listaItems);
         //establecer el adaptador a la listview
-        list.setAdapter(adaptadorPromocion);
+        listView.setAdapter(adaptadorPromocion);
 
         dbPromociones.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -75,23 +71,19 @@ public class HomeFragment extends FragmentConsultaFirebase {
                 actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
             }
         });
-
         //para slider de imagenes
         sliderLayout =  view.findViewById(R.id.imageSwitcher);
         setSliderViews();
 
-
         /** a la lista agregar el evento on click*/
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 cargarFragmento(i);
             }
         });
-
         return view;
     }
-
 
     /**hacer este metodo en el fragmento*/
     private void cargarFragmento(int i){
@@ -102,7 +94,6 @@ public class HomeFragment extends FragmentConsultaFirebase {
         }
     }
 
-
     @Override
     protected void actualizarDatos(List<DocumentChange> cambios) {
         super.actualizarDatos(cambios);
@@ -110,7 +101,6 @@ public class HomeFragment extends FragmentConsultaFirebase {
     }
 
     private void setSliderViews() {
-
         for (int i = 0; i < galeria.length; i++) {
             //crear un elemento para el slider
             SliderView sliderView = new SliderView(getContext());
@@ -121,7 +111,6 @@ public class HomeFragment extends FragmentConsultaFirebase {
             sliderLayout.addSliderView(sliderView);
         }
     }
-
 
     // Hacemos el metodo AdaptadorServicio
     private class AdaptadorPromocion extends ArrayAdapter<Item> {
@@ -136,7 +125,6 @@ public class HomeFragment extends FragmentConsultaFirebase {
             View itemView = convertView;
             if (itemView == null)
                 itemView = getLayoutInflater().inflate(R.layout.item_promociones, parent, false);
-
 
             //CurrentPromociones es la posicion en la que vamos a estar
             final Item item = listaItems.get(position);

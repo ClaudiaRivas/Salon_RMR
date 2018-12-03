@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorServicios;
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
+import com.example.rivas.salon_rmr.Apputilities.ItemClickSupport;
 import com.example.rivas.salon_rmr.R;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
@@ -21,8 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
-public class ServiceFragment extends FragmentConsultaFirebase {
-
+public class ServiceFragment extends FragmentConsultaFirebase{
 
     //firebase
     CollectionReference dbServicio;
@@ -39,7 +38,6 @@ public class ServiceFragment extends FragmentConsultaFirebase {
         list.setHasFixedSize(true);
 
         adaptadorItems = new AdaptadorServicios(listaItems,getContext());
-        ((AdaptadorServicios)adaptadorItems).setFragmentManager(getFragmentManager());
 
         // use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -60,22 +58,21 @@ public class ServiceFragment extends FragmentConsultaFirebase {
             }
         });
 
-
-        /** a la lista agregar el evento on click*/
-        /**  list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ItemClickSupport.addTo(list).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                cargarFragmento(i);
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                cargarFragmento(position);
             }
-        });*/
+        });
         return view;
     }
-    /**hacer este metodo en el fragmento*/
-    private void cargarFragmento(int i) {
+
+    private void cargarFragmento(int i){
         if (mFragmentNavigation != null) {
             DetailsFragment mFragment = new DetailsFragment();
-            mFragment.setItem(listaItems.get(i));
+            mFragment.setItem( listaItems.get(i) );
             mFragmentNavigation.pushFragment(mFragment);
         }
     }
+
 }
