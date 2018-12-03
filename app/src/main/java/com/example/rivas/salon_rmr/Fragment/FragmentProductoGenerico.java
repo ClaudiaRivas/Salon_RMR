@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.rivas.salon_rmr.Apputilities.AdaptadorProductos;
 import com.example.rivas.salon_rmr.Apputilities.FragmentConsultaFirebase;
 import com.example.rivas.salon_rmr.Apputilities.GridDecoracion;
-import com.example.rivas.salon_rmr.Apputilities.ItemClickSupport;
 import com.example.rivas.salon_rmr.R;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
@@ -36,8 +35,16 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
     private String titulo;
     private String rutaImg;
 
+    public String getReferencia() {
+        return referencia;
+    }
+
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
@@ -70,6 +77,7 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
         administrador = new GridLayoutManager(getContext(), 2);
         recycler.setLayoutManager(administrador);
         adaptadorItems = new AdaptadorProductos(listaItems,getContext());
+        ((AdaptadorProductos)adaptadorItems).setFragmentManager(getFragmentManager());
 
         recycler.addItemDecoration(decoracion);
         recycler.setAdapter(adaptadorItems);
@@ -90,22 +98,8 @@ public class FragmentProductoGenerico extends FragmentConsultaFirebase {
             });
         }
 
-        ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-            @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                cargarFragmento(position);
-            }
-        });
 
         return view;
-    }
-
-    private void cargarFragmento(int i){
-        if (mFragmentNavigation != null) {
-            DetailsFragment mFragment = new DetailsFragment();
-            mFragment.setItem( listaItems.get(i) );
-            mFragmentNavigation.pushFragment(mFragment);
-        }
     }
 
 }
