@@ -19,6 +19,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 
 public class ServiceFragment extends FragmentConsultaFirebase{
@@ -44,19 +45,27 @@ public class ServiceFragment extends FragmentConsultaFirebase{
         list.setLayoutManager(mLayoutManager);
 
         //hacer instancia a la bd en firebase
-        dbServicio = FirebaseFirestore.getInstance().collection("servicios");
+
+
+        if(dbServicio==null){
+            dbServicio  = FirebaseFirestore.getInstance().collection("servicios");
+            imgFirebase = FirebaseStorage.getInstance().getReference("img_servicios");
+
+            dbServicio.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                    actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
+                }
+            });
+        }
+
 
         //establecer el adaptador a la listview
         list.setAdapter(adaptadorItems);
         /**
          * Registra cambios en la bd mediante el evento Document Changed
          */
-        dbServicio.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
-                actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
-            }
-        });
+
 
         ItemClickSupport.addTo(list).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override

@@ -20,11 +20,18 @@ import com.example.rivas.salon_rmr.R;
 import com.example.rivas.salon_rmr.Fragment.HomeFragment;
 import com.example.rivas.salon_rmr.Fragment.ProductFragment;
 import com.example.rivas.salon_rmr.Fragment.ServiceFragment;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.ncapdevi.fragnav.FragNavController;
 import com.ncapdevi.fragnav.FragNavTransactionOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class PrincipalActivity extends AppCompatActivity implements BaseFragment.FragmentNavigation, FragNavController.TransactionListener, FragNavController.RootFragmentListener{
 
@@ -43,10 +50,10 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
     private static ServiceFragment  frm3 = new ServiceFragment();
     private static ContactFragment  frm4 = new ContactFragment();
 
-    ViewPager viewPager;
-    AdaptadorFragmento adaptador;
-    private Toolbar toolbar;
 
+    DocumentReference mDocRef = FirebaseFirestore.getInstance().document("informacion/contacto");
+    public static String txtWhatsapp;
+    public static String txtDirection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +64,6 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
 
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        //viewPager = findViewById(R.id.viewPager);
-
-        //setupViewPage(viewPager);
-
-        toolbar = findViewById(R.id.toolbar);
-
-        //ActionBar actionBar = getSupportActionBar();
-        //actionBar.hide();
-
-
 
         //para manejo de fragmentos
         mNavController = FragNavController.newBuilder(savedInstanceState, getSupportFragmentManager(), R.id.container)
@@ -82,7 +79,15 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
                 mNavController.clearStack();
             }
         });
-
+        mDocRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if(documentSnapshot.exists()){
+                    txtWhatsapp     = documentSnapshot.getString("whatsapp");
+                    txtDirection    = documentSnapshot.getString("direccion");
+                }
+            }
+        });
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -105,17 +110,6 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
                     return true;
                 }
             };
-    private void setupViewPage(ViewPager viewPager){
-        adaptador = new AdaptadorFragmento(getSupportFragmentManager());
-        adaptador.addFragment(new HomeFragment());
-        adaptador.addFragment(new ProductFragment());
-        adaptador.addFragment(new ServiceFragment());
-        adaptador.addFragment(new ContactFragment());
-
-        viewPager.setAdapter(adaptador);
-
-    }
-
     //para manejo de fragmentos
     @Override
     public void onBackPressed() {
@@ -145,7 +139,7 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
             case INDEX_CONTACT:
                 return frm4;
         }
-        throw new IllegalStateException("-------------------------Need to send an index that we know");
+        throw new IllegalStateException("------Need to send an index that we know");
     }
 
     @Override
@@ -156,32 +150,6 @@ public class PrincipalActivity extends AppCompatActivity implements BaseFragment
     @Override
     public void onFragmentTransaction(Fragment fragment, FragNavController.TransactionType transactionType) {
 
-    }
-
-    class AdaptadorFragmento extends FragmentPagerAdapter {
-
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public AdaptadorFragmento(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-
-
-            return mFragmentList.get(i);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment){
-            mFragmentList.add(fragment);
-        }
     }
 
 

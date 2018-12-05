@@ -94,7 +94,13 @@ public class FragmentConsultaFirebase extends BaseFragment {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     final int pos = posicionItem(item.getId());
-                    Bitmap imagen = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    Bitmap imagen;
+                    try{
+                        imagen= BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    }catch (Exception ex){
+                        imagen=null;
+                    }
+
                     listaItems.get(pos).setImgItem(imagen);
                     updateAdapterImage(pos);
                 }

@@ -28,6 +28,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 
@@ -60,6 +61,9 @@ public class HomeFragment extends FragmentConsultaFirebase {
         ListView listView = (ListView) view.findViewById(R.id.listview);
         //hacer instancia a la bd en firebase
         dbPromociones = FirebaseFirestore.getInstance().collection("promociones");
+
+        imgFirebase   = FirebaseStorage.getInstance().getReference("img_promociones");
+
         //crear adaptador
         adaptadorPromocion = new AdaptadorPromocion(getContext(),listaItems);
         //establecer el adaptador a la listview
@@ -112,6 +116,13 @@ public class HomeFragment extends FragmentConsultaFirebase {
         }
     }
 
+
+    @Override
+    protected void updateAdapterImage(int index) {
+        super.updateAdapterImage(index);
+        adaptadorPromocion.notifyDataSetChanged();
+    }
+
     // Hacemos el metodo AdaptadorServicio
     private class AdaptadorPromocion extends ArrayAdapter<Item> {
 
@@ -129,7 +140,10 @@ public class HomeFragment extends FragmentConsultaFirebase {
             //CurrentPromociones es la posicion en la que vamos a estar
             final Item item = listaItems.get(position);
             ImageView imageView = (ImageView) itemView.findViewById(R.id.ImagenPromociones);
-            //imageView.setImageResource(R.drawable.service2);
+
+            if(item.getImgItem()!=null){
+                imageView.setImageBitmap(item.getImgItem());
+            }
 
             TextView TemaTxt = (TextView) itemView.findViewById(R.id.TxtTema);
             TemaTxt.setText(item.getNombre());
