@@ -63,11 +63,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
         dbPromociones = FirebaseFirestore.getInstance().collection("promociones");
 
         imgFirebase   = FirebaseStorage.getInstance().getReference("img_promociones");
-
-        //crear adaptador
-
-        //establecer el adaptador a la listview
-        listView.setAdapter(adaptadorPromocion);
+        
 
         if(adaptadorPromocion==null) {
             adaptadorPromocion = new AdaptadorPromocion(getContext(), listaItems);
@@ -79,6 +75,9 @@ public class HomeFragment extends FragmentConsultaFirebase {
                 }
             });
         }
+
+        listView.setAdapter(adaptadorPromocion);
+
         //para slider de imagenes
         sliderLayout =  view.findViewById(R.id.imageSwitcher);
         setSliderViews();
