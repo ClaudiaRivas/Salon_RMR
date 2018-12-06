@@ -10,6 +10,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Contact {
 
 
     public enum APP {
-        WHATSAPP, CALL, MESSAGE
+        WHATSAPP, CALL, MESSAGE,NONE
     }
 
 
@@ -82,7 +83,12 @@ public class Contact {
                 case MESSAGE:
                     break;
                 case CALL:
-
+                    break;
+                case NONE:
+                    Snackbar snackbar = Snackbar
+                            .make(layoutContact, "Contacto agregado : Salón M&N", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,12 +113,26 @@ public class Contact {
     }
 
 
+    public static void sendWhatsAppMessage(Context context,String number,String msg){
+        msg = msg.replaceAll(" ","%20");
+        try{
+            String url = "https://api.whatsapp.com/send?phone="+number+"&text="+msg;
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            context.startActivity(i);
+        }catch (Exception ex){
+            Toast.makeText(context, "Error al abrir whatsApp", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
     public static void showWhatsApp(final Context context, final CoordinatorLayout layoutContact, final String number, final String msg) {
 
         if(contactExists(context,number)){
 
             Snackbar snackbar = Snackbar
-                    .make(layoutContact, "Contactar con el Salon", Snackbar.LENGTH_LONG);
+                    .make(layoutContact, "Contactar con el Salón", Snackbar.LENGTH_LONG);
             snackbar.setAction("Contactar", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -134,6 +154,27 @@ public class Contact {
             snackbar.show();
         }
     }
+
+    public static boolean verificarContacto(final Context context,final CoordinatorLayout layoutContact,final String number){
+        if(contactExists(context,number)){
+            return true;
+        }else{
+            Snackbar snackbar = Snackbar
+                    .make(layoutContact, "No se encontro el contacto del salón", Snackbar.LENGTH_LONG);
+            snackbar.setAction("Agregar", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    saveContact(context,layoutContact,number,"", APP.NONE);
+                }
+            });
+            snackbar.setActionTextColor(context.getResources().getColor(android.R.color.holo_orange_light));
+            snackbar.show();
+            return false;
+        }
+    }
+
+
+
 
 
 }

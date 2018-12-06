@@ -5,12 +5,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/layoutDialogWhatsapp"
+        android:id="@+id/layoutContacto"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <LinearLayout
+        android:id="@+id/layoutDialogWhatsapp"
         android:gravity="center"
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
@@ -18,22 +19,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/ic_whatsapp" />
         <TextView
-            android:id="@+id/lblDialogoWhatsapp"
             android:textColor="@android:color/holo_green_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WhatsApp"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:layout_marginLeft="10dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutDialogLlamada"
         android:gravity="center"
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
@@ -43,21 +43,21 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/ic_telephone" />
 
             <TextView
-                android:id="@+id/lblDialogoLlamada"
                 android:textColor="@android:color/holo_green_dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Llamada"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:layout_marginLeft="10dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutDialogMensaje"
         android:gravity="center"
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
@@ -66,24 +66,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/ic_email" />
             <TextView
-                android:id="@+id/lblDialogoMensaje"
                 android:textColor="@android:color/holo_green_dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mensaje"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:layout_marginLeft="10dp" />
     </LinearLayout>
     </LinearLayout>
     <Button
-        android:layout_marginLeft="10dp"
+        android:id="@+id/btnCancelarDialogo"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_below="@id/layoutDialogWhatsapp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/layoutContacto"
         android:text="Cancelar"
         android:background="@drawable/button_fondo"
         android:textColor="@drawable/button_texto"
