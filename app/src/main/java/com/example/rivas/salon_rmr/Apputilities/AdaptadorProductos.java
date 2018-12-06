@@ -46,6 +46,8 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         holder.txtPrecioProducto.setText(p.getPrecio());
         if(p.getImgItem()!=null){
             holder.imgProducto.setImageBitmap(p.getImgItem());
+        }else{
+            holder.imgProducto.setImageResource(R.drawable.ic_product);
         }
 
 

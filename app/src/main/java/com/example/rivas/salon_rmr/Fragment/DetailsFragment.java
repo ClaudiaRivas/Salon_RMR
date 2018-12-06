@@ -19,7 +19,6 @@ public class DetailsFragment extends BaseFragment {
     TextView txtDetalleTitulo,txtDetalleNombre,txtDetalleDescripcion,txtDetallePrecio;
     ImageView imagDetalleItem;
     Button btnReservar;
-
     private Item item;
     View view;
 

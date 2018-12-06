@@ -45,6 +45,8 @@ public class AdaptadorServicios extends RecyclerView.Adapter<AdaptadorServicios.
 
         if(s.getImgItem()!=null){
             viewHolder.imgServicio.setImageBitmap(s.getImgItem());
+        }else{
+            viewHolder.imgServicio.setImageResource(R.drawable.ic_hair_logo);
         }
     }
 

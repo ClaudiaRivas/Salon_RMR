@@ -63,7 +63,7 @@ public class HomeFragment extends FragmentConsultaFirebase {
         dbPromociones = FirebaseFirestore.getInstance().collection("promociones");
 
         imgFirebase   = FirebaseStorage.getInstance().getReference("img_promociones");
-        
+
 
         if(adaptadorPromocion==null) {
             adaptadorPromocion = new AdaptadorPromocion(getContext(), listaItems);
@@ -146,6 +146,8 @@ public class HomeFragment extends FragmentConsultaFirebase {
 
             if(item.getImgItem()!=null){
                 imageView.setImageBitmap(item.getImgItem());
+            }else{
+                imageView.setImageResource(R.drawable.promo);
             }
 
             TextView TemaTxt = (TextView) itemView.findViewById(R.id.TxtTema);

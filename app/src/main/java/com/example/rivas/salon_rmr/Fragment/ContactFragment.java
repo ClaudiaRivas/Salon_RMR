@@ -169,17 +169,17 @@ public class ContactFragment extends BaseFragment {
     }
 
     private void actualizar(DocumentSnapshot doc){
-        txtHorarioLunes_Viernes.setText( "Lunes a viernes : "+doc.getString("horarios_lunes_viernes")  );
-        txtHorarioSabado.setText( "Sábado : "+ doc.getString("horarios_sabado")  );
-        txtHorarioDomingo.setText( "Domingo : "+ doc.getString("horarios_domingo")  );
+        txtHorarioLunes_Viernes.setText(doc.getString("horarios_lunes_viernes")  );
+        txtHorarioSabado.setText( doc.getString("horarios_sabado")  );
+        txtHorarioDomingo.setText(doc.getString("horarios_domingo")  );
         txtWhatsapp.setText( doc.getString("whatsapp")  );
         txtFacebook.setText( doc.getString("facebook")  );
         txtInstagram.setText( doc.getString("instagram")  );
-        txtIntegrante1.setText( doc.getString("integrante1")  );
-        txtIntegrante2.setText( doc.getString("integrante2")  );
-        txtIntegrante3.setText( doc.getString("integrante3")  );
+        //txtIntegrante1.setText( doc.getString("integrante1")  );
+        //txtIntegrante2.setText( doc.getString("integrante2")  );
+        //txtIntegrante3.setText( doc.getString("integrante3")  );
         txtdireccion.setText( doc.getString("direccion")  );
-        txtCorreoIntegrante.setText( doc.getString("correo_integrante")  );
+        //txtCorreoIntegrante.setText( doc.getString("correo_integrante")  );
         txtinformacion.setText( doc.getString("informacion_salon")  );
     }
 
