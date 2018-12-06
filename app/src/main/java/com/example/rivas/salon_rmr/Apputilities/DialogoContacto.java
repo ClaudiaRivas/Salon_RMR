@@ -2,9 +2,11 @@ package com.example.rivas.salon_rmr.Apputilities;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.telephony.SmsManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -34,12 +36,14 @@ public class DialogoContacto {
             @Override
             public void onClick(View view) {
                 Contact.sendWhatsAppMessage(activity,numero,msg);
+                dialog.dismiss();
             }
         });
         llamada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", numero, null)));
+                dialog.dismiss();
             }
         });
 
@@ -51,6 +55,7 @@ public class DialogoContacto {
                 smsIntent.putExtra("address", numero);
                 smsIntent.putExtra("sms_body",msg);
                 activity.startActivity(smsIntent);
+                dialog.dismiss();
             }
         });
 
@@ -60,11 +65,16 @@ public class DialogoContacto {
                 dialog.dismiss();
             }
         });
+
+        dialog.setOnKeyListener(new Dialog.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                if (i == KeyEvent.KEYCODE_BACK) {
+                    dialog.dismiss();
+                }
+                return true;
+            }
+        });
         dialog.show();
-    }
-
-
-    public void sendSMS(String phoneNo, String msg) {
-
     }
 }
