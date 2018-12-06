@@ -65,16 +65,20 @@ public class HomeFragment extends FragmentConsultaFirebase {
         imgFirebase   = FirebaseStorage.getInstance().getReference("img_promociones");
 
         //crear adaptador
-        adaptadorPromocion = new AdaptadorPromocion(getContext(),listaItems);
+
         //establecer el adaptador a la listview
         listView.setAdapter(adaptadorPromocion);
 
-        dbPromociones.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
-                actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
-            }
-        });
+        if(adaptadorPromocion==null) {
+            adaptadorPromocion = new AdaptadorPromocion(getContext(), listaItems);
+
+            dbPromociones.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                    actualizarDatos(queryDocumentSnapshots.getDocumentChanges());
+                }
+            });
+        }
         //para slider de imagenes
         sliderLayout =  view.findViewById(R.id.imageSwitcher);
         setSliderViews();
